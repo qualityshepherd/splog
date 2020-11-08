@@ -1,0 +1,16 @@
+---
+title: Don't Panic
+date: 2020-10-8
+tags: panic
+---
+
+![thumb](assets/images/ipsum.jpg)Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet risus nullam eget felis eget nunc lobortis mattis. Eget nullam non nisi est sit amet. Ut eu sem integer vitae justo eget. Ut enim blandit volutpat maecenas volutpat blandit. Interdum varius sit amet mattis. Hac habitasse platea dictumst vestibulum rhoncus est. Proin libero nunc consequat interdum varius. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi. Ipsum faucibus vitae aliquet nec ullamcorper sit amet. Arcu bibendum at varius vel pharetra vel turpis nunc. Sollicitudin aliquam ultrices sagittis orci. Ultrices dui sapien eget mi proin sed. Lectus sit amet est placerat in egestas. In dictum non consectetur a erat nam at lectus. Aenean pharetra magna ac placerat. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui.
+
+> Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Feugiat in ante metus dictum at.
+
+Tellus pellentesque eu tincidunt tortor. Vitae tempus quam pellentesque nec. Etiam tempor orci eu lobortis elementum nibh. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Morbi quis commodo odio aenean sed adipiscing diam donec. Amet risus nullam eget felis. Sem viverra aliquet eget sit amet tellus cras. Massa vitae tortor condimentum lacinia quis vel eros donec. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero. At volutpat diam ut venenatis tellus. Id faucibus nisl tincidunt eget.  Id venenatis a condimentum vitae. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Posuere urna nec tincidunt praesent. Consectetur adipiscing elit ut aliquam purus sit. Pellentesque id nibh tortor id.
+
+```
+10 print "Howdy!"
+20 goto 10
+```

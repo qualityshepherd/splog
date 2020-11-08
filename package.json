@@ -1,0 +1,47 @@
+{
+  "name": "spa-blog",
+  "description": "A simple Single Page Blog...",
+  "version": "1.0.0",
+  "author": "brine",
+  "license": "MIT",
+  "main": "index.html",
+  "jest": {
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],
+    "testMatch": [
+      "**/tests/**/*Test.js"
+    ],
+    "testTimeout": 90000,
+    "verbose": true,
+    "coverageReporters": [
+      "text"
+    ]
+  },
+  "scripts": {
+    "jest": "./node_modules/.bin/jest",
+    "test": "jest tests --no-cache",
+    "watch": "jest --watchAll",
+    "coverage": "jest --collect-coverage",
+    "pack": "webpack",
+    "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
+    "start": "npm run build:index && npm run pack",
+    "server": "npx http-server -p 4242"
+  },
+  "dependencies": {
+    "showdown": "^1.9.1",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.0",
+    "jest": "^26.6.3",
+    "babel-jest": "^26.6.3"
+  }
+}

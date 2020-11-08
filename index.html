@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>A Single Page Blog | Splog</title>
+  <meta charset="utf-8">
+  <meta name="description" content="A vanilla js, single page blog...">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js"></script>
+</head>
+<body>
+
+<div id="header">
+<div class="container">
+
+<a href="/"><h1>SPLOG</h1></a>
+
+  <div id="nav">
+  <ul>
+    <li><a href="/">Blog</a></li>
+    <li><a href="#about">About</a></li>
+    <li>
+      <form action="#search?q=" onsubmit="location.href=this.action+q.value; return false">
+        <input id="search" name="q" type="text" placeholder="&#x1F50D;">
+      </form>
+    </li>
+  </ul>
+  </div>
+
+</div>
+</div>
+
+<!-- content will be inserted here -->
+<div id="main"></div>
+
+<!-- import webpack  -->
+<script src="dist/main.js"></script>
+</body>
+</html>
