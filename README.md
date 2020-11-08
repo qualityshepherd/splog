@@ -8,6 +8,7 @@ _a simple, single page blog that features:_
 - includes index searching
 - is written in vanilla js
 - a post indexer (`src/lib/genr8.js`)
+- _load more_ style pagination
 
 ## Customizing
 - edit index.html (but leave `#main` and `script`s)
