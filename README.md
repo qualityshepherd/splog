@@ -7,8 +7,8 @@ _a simple, single page blog that features:_
 - simple `#hash` routing
 - index searching
 - vanilla js!
-- a post indexer (`src/lib/genr8.js`)
-- _load more_ pagination
+- a post indexer: `src/lib/genr8.js` (ie. no DB)
+- _load more-style_ pagination
 
 ## Customizing
 - edit index.html (but leave `#main`)
