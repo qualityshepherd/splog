@@ -15,7 +15,7 @@ _a simple, single page blog that features:_
 - add/edit pages in `src/pages` to render html (injected into `#main`)
 - adjust `src/index.js` to match pages/routes
 - add posts written in Markdown (must have .md ext) to `/posts`
-- run `npm start` to publish new posts (creates new index and webpack in `dist`)
+- run `npm start` to publish new posts (creates new index and webpack in `/dist`)
 
 ## Setup
 > assumes Node and Git...
