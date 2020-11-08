@@ -15,7 +15,6 @@ const blog = {
           <div>${post.html}</div>
           <span class="tags">${renderTags(post.tags)}</span>
         </div>
-        <hr>
         `
     }).join('\n')
 

@@ -18,7 +18,6 @@ const tags = {
           <div>${post.html}</div>
           <span class="tags">${renderTags(post.tags)}</span>
         </div>
-        <hr>
         `
     }).join('\n')
 
