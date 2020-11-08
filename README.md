@@ -25,3 +25,5 @@ _a simple, single page blog that features:_
 goto:
 http://lvh.me:4242/
 
+## Demo
+My personal site is running on splog: https://qualityshepherd.com
