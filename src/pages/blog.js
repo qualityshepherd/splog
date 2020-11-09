@@ -18,13 +18,13 @@ const blog = {
         `
     }).join('\n')
 
-    const loadMoreBtn = `
+    const morePostsBtn = `
       <div class="container center">
-        <a href="#blog?numPosts=${numPosts}"><button id="load-more">Load more...</button></a>
+        <a href="#blog?numPosts=${numPosts}"><button id="more-posts">More posts...</button></a>
       </div>
       `
     // only show button if there are more to load
-    if(numPosts < sorted.length) posts += loadMoreBtn
+    if(numPosts < sorted.length) posts += morePostsBtn
     return posts
   }
 }

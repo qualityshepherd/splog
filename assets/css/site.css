@@ -78,6 +78,14 @@ a {
   text-decoration: none;
 }
 
+#more-posts {
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: Peru;
+}
+
 button {
   border-radius:10px;
   cursor: pointer;
