@@ -25,8 +25,9 @@
     "watch": "jest --watchAll",
     "coverage": "jest --collect-coverage",
     "pack": "webpack",
+    "rss": "./node_modules/.bin/babel-node src/lib/rss.js",
     "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
-    "start": "npm run build:index && npm run pack",
+    "start": "npm run build:index && npm run rss && npm run pack",
     "server": "npx http-server -p 4242"
   },
   "dependencies": {

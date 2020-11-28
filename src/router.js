@@ -1,9 +1,9 @@
-import blog from './pages/blog.js'
-import post from './pages/post.js'
-import about from './pages/about.js'
-import error from './pages/error.js'
-import search from './pages/search.js'
-import tags from './pages/tags.js'
+import blog from './views/blog.js'
+import post from './views/post.js'
+import about from './views/about.js'
+import error from './views/error.js'
+import search from './views/search.js'
+import tags from './views/tags.js'
 
 /**
  * To add pages:

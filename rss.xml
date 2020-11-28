@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>SPLOG</title>
+  <link>https://github.com/qualityshepherd/splog</link>
+  <description>A simple, single page blog app written in vanilla js...</description>
+  <language>en-us</language>
+  <item>
+    <title>Don't Panic</title>
+    <link>https://spl.og/#post?spost1</link>
+    <description>Don't Panic</description>
+  </item>
+  <item>
+    <title>It's Only a Test</title>
+    <link>https://spl.og/#post?spost2</link>
+    <description>It's Only a Test</description>
+  </item>
+</channel>
+</rss>
