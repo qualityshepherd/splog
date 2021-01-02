@@ -1,10 +1,9 @@
-import config from './config'
 import genr8 from '../src/lib/genr8'
 
 describe('siteIndex', () => {
   test('should call writeSiteJson', async () => {
     const writeSiteJson = jest.spyOn(genr8, 'writeSiteJson')
-    await genr8.siteIndex(config)
+    await genr8.siteIndex('./siteIndex.json', './posts')
 
     expect(writeSiteJson).toHaveBeenCalled()
   })

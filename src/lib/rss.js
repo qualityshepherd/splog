@@ -1,8 +1,7 @@
 import { promises as fs } from 'fs'
-import config from '../../config'
 
 (async () => {
-  const index = await fs.readFile(config.siteIndex, {encoding: "utf8"})
+  const index = await fs.readFile('./siteIndex.json', {encoding: "utf8"})
     .catch(err => throw err)
   const posts = JSON.parse(index)
 
@@ -23,7 +22,7 @@ import config from '../../config'
   </item>`
   })
 
-  feed += `</channel></rss>`
+  feed += `\n</channel>\n</rss>`
 
   await fs.writeFile('./rss.xml', feed, {encoding: "utf8"})
     .catch(err => throw err)

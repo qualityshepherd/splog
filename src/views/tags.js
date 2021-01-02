@@ -1,10 +1,9 @@
-import config from '../../config'
 import { readSiteIndex, sortByDate, renderTags } from '../utils'
 
 const tags = {
   async render(params) {
     const t = params.get('t')
-    const index = await readSiteIndex(config)
+    const index = await readSiteIndex('./siteindex.json')
     const sorted = await index.sort(sortByDate())
     const found = sorted.filter(({tags}) => {
       return tags.toLowerCase().indexOf(t.toLowerCase()) > -1

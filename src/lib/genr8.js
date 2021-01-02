@@ -3,13 +3,14 @@ import showdown from 'showdown'
 
 const genr8 = {
   /**
-   * generate the site index
-   * @param  {json} config
+   * generate site index
+   * @param  {[type]} pathToSiteIndex
+   * @param  {[type]} pathToPostsFolder
    */
-  async siteIndex(config) {
-    const posts = await this.readPosts(config.postsFolder)
-    const json = await this.parseMarkdownFiles(posts, config.postsFolder)
-    await this.writeSiteJson(config.siteIndex, await json)
+  async siteIndex(pathToSiteIndex, pathToPostsFolder) {
+    const posts = await this.readPosts(pathToPostsFolder)
+    const json = await this.parseMarkdownFiles(posts, pathToPostsFolder)
+    await this.writeSiteJson(pathToSiteIndex, await json)
       .catch(err => throw err)
   },
 

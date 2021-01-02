@@ -1,10 +1,9 @@
-import config from '../../config'
 import { readSiteIndex, renderTags } from '../utils'
 
 // single blog post...
 const post = {
   async render(params) {
-    const index = await readSiteIndex(config)
+    const index = await readSiteIndex('./siteindex.json')
     const post = index.find(post => {
       return post.slug === params.get('s')
     })

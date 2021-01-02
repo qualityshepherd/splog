@@ -10,6 +10,21 @@ _a simple, single page blog that features:_
 - a post indexer: `src/lib/genr8.js` (ie. no DB)
 - _load more-style_ pagination
 - rss builder
+- zero config
+
+## Setup
+> assumes Node and Git...
+1. clone: `git clone git@github.com:qualityshepherd/splog.git`
+1. `cd splog`
+1. install dependencies: `npm i`
+1. add your [markdown](https://guides.github.com/features/mastering-markdown/) posts to `/posts` folder
+1. build index, rss and pack it: `npm start`
+1. run web server (if needed): `npm run server` - http://lvh.me:4242/
+
+## Updating
+> when you add posts or make changes
+1. run `npm start`
+1. you may need to clear your browser cache to see changes
 
 ## Customizing
 - edit index.html (but leave `#main`)
@@ -17,14 +32,6 @@ _a simple, single page blog that features:_
 - adjust add news views to `src/router.js`
 - add posts written in Markdown (must have .md ext) to `/posts`
 - run `npm start` to publish new posts (creates new index and webpack in `/dist`) and builds rss.xml
-
-## Setup
-> assumes Node and Git...
-1. clone: `git clone git@github.com:qualityshepherd/splog.git`
-1. `cd splog`
-1. install dependencies: `npm i`
-1. build index and pack it: `npm start`
-1. run web server (if needed): `npm run server` - http://lvh.me:4242/
 
 ## Demo
 My blog is running on splog! https://qualityshepherd.com

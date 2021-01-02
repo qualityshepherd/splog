@@ -1,4 +1,3 @@
-import config from './config'
 import { promises as fs } from 'fs'
 import genr8 from '../src/lib/genr8'
 
@@ -12,7 +11,7 @@ const data = [
     "html": "<h1 id=\"thisisalsoatest\">This is also a test</h1>\n<p><em>laytah…</em></p>"
   }
 ]
-const siteIndex = config.siteIndex
+const siteIndex = './siteindex.json'
 
 describe('writeSiteJson', () => {
   test('should call fs.writeFile', async () => {
