@@ -3,8 +3,8 @@
  * Note: fetch is provided in the browser...
  */
 
-export async function readSiteIndex(config) {
-  const data = await fetch(config.siteIndex)
+export async function readSiteIndex(pathToSiteIndex) {
+  const data = await fetch(pathToSiteIndex)
     .catch(err => { err })
   return await data.json()
 }

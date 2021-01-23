@@ -24,6 +24,6 @@ import { promises as fs } from 'fs'
 
   feed += `\n</channel>\n</rss>`
 
-  await fs.writeFile('./rss.xml', feed, {encoding: "utf8"})
+  await fs.writeFile('./blogRss.xml', feed, {encoding: "utf8"})
     .catch(err => throw err)
 })()

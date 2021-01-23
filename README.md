@@ -9,7 +9,8 @@ _a simple, single page blog that features:_
 - vanilla js!
 - a post indexer: `src/lib/genr8.js` (ie. no DB)
 - _load more-style_ pagination
-- rss builder
+- blog rss builder
+- podcast rss builder
 - zero config
 
 ## Setup
@@ -32,6 +33,12 @@ _a simple, single page blog that features:_
 - adjust add news views to `src/router.js`
 - add posts written in Markdown (must have .md ext) to `/posts`
 - run `npm start` to publish new posts (creates new index and webpack in `/dist`) and builds rss.xml
+
+## Podcast RSS
+> a script that builds an apple/spotify compatible rss xml file that you can submit to all the aggregators
+1. open `lib/podRss.js` and edit the `pod` information to match your podcast
+2. `npm run pod` or `npm start` to build the xml file `podRss.xml`
+3. submit the link to the file (eg. `https://mydomain.com/podRss.xml`) to aggregatrors (eg. Spotify)
 
 ## Demo
 My blog is running on splog! https://qualityshepherd.com
