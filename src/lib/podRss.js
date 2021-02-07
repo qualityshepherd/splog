@@ -19,8 +19,8 @@ const pod = {
   const index = await fs.readFile('./siteIndex.json', {encoding: "utf8"})
     .catch(err => throw err)
   const posts = JSON.parse(index)
-  const podcasts = posts.filter(({tags}) => {
-    return tags.toLowerCase().indexOf('podcast') > -1
+  const podcasts = posts.filter(({meta}) => {
+    return meta.tags.toLowerCase().indexOf('podcast') > -1
   })
   // pull the audio tag from posts...
   const audioRegExp = /<audio.*?src="(.*?)"/;

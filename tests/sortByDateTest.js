@@ -1,4 +1,4 @@
-import genr8 from '../src/lib/genr8'
+import genr8Index from '../src/lib/genr8Index'
 
 describe('sortByDate', () => {
   const dates = [
@@ -7,7 +7,7 @@ describe('sortByDate', () => {
   ]
 
   test('should sort by date', async () => {
-    const sorted = await genr8.sortByDate(dates)
+    const sorted = await genr8Index.sortByDate(dates)
 
     await expect(typeof(sorted)).toBe('object')
     await expect(sorted[0].date).toBe('2020-09-17')

@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs'
-import genr8 from '../src/lib/genr8'
+import genr8Index from '../src/lib/genr8Index'
 
 const data = [
   {
@@ -16,12 +16,12 @@ const siteIndex = './siteindex.json'
 describe('writeSiteJson', () => {
   test('should call fs.writeFile', async () => {
     const writeFile = jest.spyOn(fs, 'writeFile')
-    await genr8.writeSiteJson(siteIndex, data)
+    await genr8Index.writeSiteJson(siteIndex, data)
 
     expect(writeFile).toHaveBeenCalled()
   })
 
   test('should error with invalid path', async () => {
-    await expect(genr8.writeSiteJson('./invalid/path')).rejects.toThrowError()
+    await expect(genr8Index.writeSiteJson('./invalid/path')).rejects.toThrowError()
   })
 })

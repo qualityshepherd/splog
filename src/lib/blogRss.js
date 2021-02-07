@@ -16,9 +16,9 @@ import { promises as fs } from 'fs'
   posts.forEach(post => {
     feed += `
   <item>
-    <title>${post.title}</title>
-    <link>https://spl.og/#post?s${post.slug}</link>
-    <description>${post.title.substring(0,42)}</description>
+    <title>${post.meta.title}</title>
+    <link>https://spl.og/#post?s${post.meta.slug}</link>
+    <description>${post.meta.title.substring(0,42)}</description>
   </item>`
   })
 

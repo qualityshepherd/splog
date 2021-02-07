@@ -1,9 +1,9 @@
-import genr8 from '../src/lib/genr8'
+import genr8Index from '../src/lib/genr8Index'
 
 describe('siteIndex', () => {
   test('should call writeSiteJson', async () => {
-    const writeSiteJson = jest.spyOn(genr8, 'writeSiteJson')
-    await genr8.siteIndex('./siteIndex.json', './posts')
+    const writeSiteJson = jest.spyOn(genr8Index, 'writeSiteJson')
+    await genr8Index.siteIndex('./siteIndex.json', './posts')
 
     expect(writeSiteJson).toHaveBeenCalled()
   })
@@ -14,6 +14,6 @@ describe('siteIndex', () => {
       siteIndex: './nodata/nosite.json'
     }
 
-    await expect(genr8.siteIndex(badConfig)).rejects.toThrowError()
+    await expect(genr8Index.siteIndex(badConfig)).rejects.toThrowError()
   })
 })
