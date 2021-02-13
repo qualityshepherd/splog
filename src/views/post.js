@@ -5,7 +5,7 @@ const post = {
   async render(params) {
     const index = await readSiteIndex('./siteindex.json')
     const post = index.find(post => {
-      return post.slug === params.get('s')
+      return post.meta.slug === params.get('s')
     })
 
     return `
