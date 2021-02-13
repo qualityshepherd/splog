@@ -53,19 +53,20 @@ const genr8Index = {
   parseMarkdownFiles(fileArray, path) {
     const converter = new showdown.Converter({ metadata: true })
     return Promise.all(
-      fileArray.map(async file => {
-        if (file.indexOf('.md') > -1) {
-          const markdown = await fs.readFile(`${path}/${file}`, 'utf8')
-            .catch(err => throw err)
-          const html = await converter.makeHtml(await markdown)
-          let meta = await converter.getMetadata()
-          meta.slug = file.replace('.md', '')
+      fileArray.filter(file => {
+        // skip non .md files and files that start with 'draft'
+        return file.indexOf('.md') > -1 && /^draft_/.test(file) === false
+      }).map(async file => {
+        const markdown = await fs.readFile(`${path}/${file}`, 'utf8')
+          .catch(err => throw err)
+        const html = await converter.makeHtml(await markdown)
+        let meta = await converter.getMetadata()
+        meta.slug = file.replace('.md', '')
 
-          return {
-            meta,
-            markdown,
-            html
-          }
+        return {
+          meta,
+          markdown,
+          html
         }
       })
     )
