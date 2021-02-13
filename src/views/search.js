@@ -5,9 +5,9 @@ const search = {
     const q = params.get('q')
     const index = await readSiteIndex('./siteindex.json')
     const sorted = await index.sort(sortByDate())
-    const found = sorted.filter(({title, tags, html}) => {
-      return title.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
-             tags.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
+    const found = await sorted.filter(({meta, html}) => {
+      return meta.title.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
+             meta.tags.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
              html.toLowerCase().indexOf(q.toLowerCase()) > -1
     })
 

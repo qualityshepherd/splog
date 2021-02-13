@@ -5,8 +5,8 @@ const tags = {
     const t = params.get('t')
     const index = await readSiteIndex('./siteindex.json')
     const sorted = await index.sort(sortByDate())
-    const found = sorted.filter(({tags}) => {
-      return tags.toLowerCase().indexOf(t.toLowerCase()) > -1
+    const found = await sorted.filter(({meta}) => {
+      return meta.tags.toLowerCase().indexOf(t.toLowerCase()) > -1
     })
 
     let posts = found.map(post => {
