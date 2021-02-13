@@ -12,6 +12,7 @@ _a simple, single page blog that features:_
 - blog rss builder
 - podcast rss builder
 - zero config
+- blog posts starting with `draft_` are skipped (not added to index)
 
 ## Setup
 > assumes Node and Git...
