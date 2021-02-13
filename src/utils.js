@@ -17,8 +17,8 @@ export function sortBy(prop) {
 
 export function sortByDate(asc = true) {
   return (a, b) => {
-    a = new Date(a.date)
-    b = new Date(b.date)
+    a = new Date(a.meta.date)
+    b = new Date(b.meta.date)
     if(asc) {
       return (a < b )? 1 : a > b ? -1 : 0
     } else {
