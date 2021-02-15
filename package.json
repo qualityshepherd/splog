@@ -5,6 +5,11 @@
   "author": "brine",
   "license": "MIT",
   "main": "index.html",
+  "splog": {
+    "pathToIndex": "./siteIndex.json",
+    "pathToPostsFolder": "./posts",
+    "maxPosts": "7"
+  },
   "jest": {
     "roots": [
       "<rootDir>/src/",

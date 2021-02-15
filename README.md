@@ -11,7 +11,6 @@ _a simple, single page blog that features:_
 - _load more-style_ pagination
 - blog rss builder
 - podcast rss builder
-- zero config
 - blog posts starting with `draft_` are skipped (not added to index)
 
 ## Setup
@@ -29,6 +28,10 @@ _a simple, single page blog that features:_
 1. you may need to clear your browser cache to see changes
 
 ## Customizing
+- edit `package.json` `splog` section to change:
+  - `pathToIndex` - splog's flatfile db
+  - `pathToPostsFolder` - where you keep your .md posts
+  - `maxPosts` - the number of posts to display per "page"
 - edit index.html (but leave `#main`)
 - add/edit views/pages in `src/views` to render html (injected into `#main`)
 - adjust add news views to `src/router.js`

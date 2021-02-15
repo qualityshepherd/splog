@@ -3,7 +3,7 @@ import { readSiteIndex, sortByDate, renderTags } from '../utils'
 const blog = {
   async render(params) {
     const numPosts = params.get('numPosts') ? Number(params.get('numPosts')) + 1 : 1
-    const index = await readSiteIndex('./siteIndex.json')
+    const index = await readSiteIndex()
     const sorted = await index.sort(sortByDate())
 
     let posts = sorted.slice(0, numPosts).map(post => {

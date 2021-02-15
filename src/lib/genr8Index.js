@@ -1,8 +1,6 @@
 import { promises as fs } from 'fs'
 import showdown from 'showdown'
-const pathToIndex = './siteIndex.json'
-const pathToPostsFolder = './posts'
-
+import { splog } from '../../package'
 
 const genr8Index = {
   /**
@@ -87,4 +85,4 @@ const genr8Index = {
 }
 export default genr8Index
 
-genr8Index.siteIndex(pathToIndex, pathToPostsFolder)
+genr8Index.siteIndex(splog.pathToIndex, splog.pathToPostsFolder)

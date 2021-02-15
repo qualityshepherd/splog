@@ -1,7 +1,8 @@
 import { promises as fs } from 'fs'
+import { splog } from '../../package'
 
 (async () => {
-  const index = await fs.readFile('./siteIndex.json', {encoding: "utf8"})
+  const index = await fs.readFile(splog.pathToIndex, {encoding: "utf8"})
     .catch(err => throw err)
   const posts = JSON.parse(index)
 

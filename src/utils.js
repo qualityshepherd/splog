@@ -1,10 +1,12 @@
+import { splog } from '../package'
+
 /**
  * Functions shared among pages...
  * Note: fetch is provided in the browser...
  */
 
-export async function readSiteIndex(pathToSiteIndex) {
-  const data = await fetch(pathToSiteIndex)
+export async function readSiteIndex(pathToIndex = splog.pathToIndex) {
+  const data = await fetch(pathToIndex)
     .catch(err => { err })
   return await data.json()
 }
