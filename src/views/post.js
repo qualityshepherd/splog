@@ -3,7 +3,7 @@ import { readSiteIndex, renderTags } from '../utils'
 // single blog post...
 const post = {
   async render(params) {
-    const index = await readSiteIndex('./siteindex.json')
+    const index = await readSiteIndex('./siteIndex.json')
     const post = index.find(post => {
       return post.meta.slug === params.get('s')
     })

@@ -3,7 +3,7 @@ import { readSiteIndex, sortByDate, renderTags } from '../utils'
 const tags = {
   async render(params) {
     const t = params.get('t')
-    const index = await readSiteIndex('./siteindex.json')
+    const index = await readSiteIndex('./siteIndex.json')
     const sorted = await index.sort(sortByDate())
     const found = await sorted.filter(({meta}) => {
       return meta.tags.toLowerCase().indexOf(t.toLowerCase()) > -1
