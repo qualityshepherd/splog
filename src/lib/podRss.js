@@ -43,15 +43,16 @@ const pod = {
   </itunes:owner>
   <atom:link href="${pod.podUrl}" rel="self" type="application/rss+xml" />`
 
-  podcasts.forEach(pod => {
+  // from posts
+  podcasts.forEach(podcast => {
     feed += `
   <item>
-    <title>${pod.title}</title>
-    <link>https://brine.dev/#post?s${pod.slug}</link>
-    <description>${pod.description}</description>
-    <enclosure url="https://brine.dev/${pod.html.match(audioRegExp)[1]}" type="audio/mpeg" length="1024"></enclosure>
-    <pubDate>${new Date(pod.date).toUTCString()}</pubDate>
-    <guid>https://brine.dev/#post?s${pod.slug}</guid>
+    <title>${podcast.meta.title}</title>
+    <link>https://brine.dev/#post?s${podcast.meta.slug}</link>
+    <description>${podcast.meta.description}</description>
+    <enclosure url="https://brine.dev/${podcast.html.match(audioRegExp)[1]}" type="audio/mpeg" length="1024"></enclosure>
+    <pubDate>${new Date(podcast.meta.date).toUTCString()}</pubDate>
+    <guid>https://brine.dev/#post?s${podcast.meta.slug}</guid>
  </item>`
   })
 
