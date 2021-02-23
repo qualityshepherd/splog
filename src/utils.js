@@ -36,3 +36,8 @@ export function renderTags(tagString) {
     }).join(', ')
   }
 }
+
+export function getFirstImgSrc(htmlString) {
+  const img = htmlString.match(/assets.*\.(gif|jpe?g|png)/);
+  return img[0]
+}
