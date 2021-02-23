@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "index.html",
   "splog": {
+    "url": "http://lvh.me:4242/",
     "pathToIndex": "./siteIndex.json",
     "pathToPostsFolder": "./posts",
     "maxPosts": "7"

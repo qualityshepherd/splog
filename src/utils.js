@@ -39,5 +39,5 @@ export function renderTags(tagString) {
 
 export function getFirstImgSrc(htmlString) {
   const img = htmlString.match(/assets.*\.(gif|jpe?g|png)/);
-  return img[0]
+  return `${splog.url}${img[0]}`
 }
