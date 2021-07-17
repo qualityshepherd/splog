@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs'
-import { splog } from '../../package'
+import config from '../../package'
 
 // change these to match your pod...
 const pod = {
@@ -17,7 +17,7 @@ const pod = {
  * create a podcast rss xml file
  */
 (async () => {
-  const index = await fs.readFile(splog.pathToIndex, {encoding: "utf8"})
+  const index = await fs.readFile(config.splog.pathToIndex, {encoding: "utf8"})
     .catch(err => throw err)
   const posts = JSON.parse(index)
   const podcasts = posts.filter(({meta}) => {
@@ -59,6 +59,6 @@ const pod = {
 
   feed += `\n</channel>\n</rss>`
 
-  await fs.writeFile('./podRss.xml', feed, {encoding: "utf8"})
+  await fs.writeFile('./rss/pod.xml', feed, {encoding: "utf8"})
     .catch(err => throw err)
 })()

@@ -38,7 +38,7 @@ const getHash = async () => {
 
   (hash === '' || hash === '/') ? hash = '#blog' : hash; // need this semi too!
   (!routes[hash]) ? hash = '#error' : hash // handle 404s
-  return {hash, params}
+  return { hash, params }
 }
 
 // and we're listening...

@@ -1,8 +1,8 @@
 import { promises as fs } from 'fs'
-import { splog } from '../../package'
+import config from '../../package'
 
 (async () => {
-  const index = await fs.readFile(splog.pathToIndex, {encoding: "utf8"})
+  const index = await fs.readFile(config.splog.pathToIndex, {encoding: "utf8"})
     .catch(err => throw err)
   const posts = JSON.parse(index)
 
@@ -25,6 +25,6 @@ import { splog } from '../../package'
 
   feed += `\n</channel>\n</rss>`
 
-  await fs.writeFile('./blogRss.xml', feed, {encoding: "utf8"})
+  await fs.writeFile('./rss/blog.xml', feed, {encoding: "utf8"})
     .catch(err => throw err)
 })()

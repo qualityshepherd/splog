@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs'
 import showdown from 'showdown'
-import { splog } from '../../package'
+import config from '../../package'
 
 const genr8Index = {
   /**
@@ -49,7 +49,7 @@ const genr8Index = {
    * @return {json}
    */
   parseMarkdownFiles(fileArray, path) {
-    const converter = new showdown.Converter({ metadata: true })
+    let converter = new showdown.Converter({ metadata: true, strikethrough: true, emoji: true })
     return Promise.all(
       fileArray.filter(file => {
         // skip non .md files and files that start with 'draft'
@@ -85,4 +85,4 @@ const genr8Index = {
 }
 export default genr8Index
 
-genr8Index.siteIndex(splog.pathToIndex, splog.pathToPostsFolder)
+genr8Index.siteIndex(config.splog.pathToIndex, config.splog.pathToPostsFolder)

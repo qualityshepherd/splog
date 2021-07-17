@@ -20,7 +20,7 @@ _a simple, single page blog that features:_
 1. install dependencies: `npm i`
 1. add your [markdown](https://guides.github.com/features/mastering-markdown/) posts to `/posts` folder
 1. edit the package.json `splog` section with your details
-1. build index, rss and pack it: `npm start`
+1. `npm start` to build index, rss and pack it
 1. run web server (if needed): `npm run server` - http://lvh.me:4242/
 
 ## Updating

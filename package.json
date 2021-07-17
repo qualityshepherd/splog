@@ -7,32 +7,15 @@
   "main": "index.html",
   "splog": {
     "url": "http://lvh.me:4242/",
-    "pathToIndex": "./siteIndex.json",
+    "pathToIndex": "./src/siteIndex.json",
     "pathToPostsFolder": "./posts",
     "maxPosts": "7"
   },
-  "jest": {
-    "roots": [
-      "<rootDir>/src/",
-      "<rootDir>/tests/"
-    ],
-    "testMatch": [
-      "**/tests/**/*Test.js"
-    ],
-    "testTimeout": 90000,
-    "verbose": true,
-    "coverageReporters": [
-      "text"
-    ]
-  },
   "scripts": {
-    "jest": "./node_modules/.bin/jest",
     "test": "jest tests --no-cache",
-    "watch": "jest --watchAll",
-    "coverage": "jest --collect-coverage",
     "pack": "webpack",
-    "rss": "./node_modules/.bin/babel-node src/lib/blogRss.js",
-    "pod": "./node_modules/.bin/babel-node src/lib/podRss.js",
+    "rss": "./node_modules/.bin/babel-node src/lib/genr8Blog.js",
+    "pod": "./node_modules/.bin/babel-node src/lib/genr8Pod.js",
     "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
     "start": "npm run build:index && npm run rss && npm run pod && npm run pack",
     "server": "npx http-server -p 4242"
@@ -49,7 +32,7 @@
     "@babel/plugin-proposal-throw-expressions": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.0",
-    "jest": "^26.6.3",
-    "babel-jest": "^26.6.3"
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
   }
 }

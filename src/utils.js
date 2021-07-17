@@ -1,11 +1,11 @@
-import { splog } from '../package'
+import config from '../package'
 
 /**
  * Functions shared among pages...
  * Note: fetch is provided in the browser...
  */
 
-export async function readSiteIndex(pathToIndex = splog.pathToIndex) {
+export async function readSiteIndex(pathToIndex = config.splog.pathToIndex) {
   const data = await fetch(pathToIndex)
     .catch(err => { err })
   return await data.json()
@@ -39,5 +39,5 @@ export function renderTags(tagString) {
 
 export function getFirstImgSrc(htmlString) {
   const img = htmlString.match(/assets.*\.(gif|jpe?g|png)/);
-  return `${splog.url}${img[0]}`
+  return `${config.splog.url}${img[0]}`
 }
