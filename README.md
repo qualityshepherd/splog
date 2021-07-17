@@ -39,6 +39,14 @@ _a simple, single page blog that features:_
 - add posts written in Markdown (must have .md ext) to `/posts`
 - run `npm start` to publish new posts (creates new index and webpack in `/dist`) and builds rss.xml
 
+## Testing
+> run test with [Testcafe](https://testcafe.io/)
+1. build it: `npm start`
+1. start server: `npm run server`
+1. run all tests: `npm test`
+1. run all tests headless: `npm run headless`
+1. run an individual test: `npm run testcafe chrome e2e/tests/blogTest.js`
+
 ## Podcast RSS
 > a script that builds an apple/spotify compatible rss xml file that you can submit to all the aggregators
 1. open `lib/podRss.js` and edit the `pod` information to match your podcast
