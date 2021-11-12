@@ -1,0 +1,137 @@
+/* site-wide css... add to index.html */
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  color: #444
+}
+
+#header h1 {
+  float: left;
+  color: Peru;
+  text-decoration: none;
+  border: none
+}
+
+a {
+  color: Peru;
+  text-decoration: none;
+}
+
+#nav {
+  float:right;
+  text-align: center
+}
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+#nav ul li {
+  display: inline-block;
+  margin-left: 1em;
+  padding: 0;
+  font-weight: 700
+}
+
+#nav a:hover,
+#nav-toggle:hover {
+  color: Peru
+}
+
+#nav a {
+  color: #ccc
+}
+
+#main, .container {
+  flex: 1 0 auto;
+  max-width: 48em;
+  padding: 0 .5em;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.post {
+  margin-bottom: 100px;
+}
+
+.date {
+  font-size: .8em;
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  color: #ccc;
+}
+
+.tags a {
+  font-size: .8em;
+  font-style: italic;
+  color: #ccc;
+  text-decoration: none;
+}
+
+#more-posts {
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: Peru;
+}
+
+button {
+  border-radius:10px;
+  cursor: pointer;
+  font-size: .9rem;
+  padding: 10px;
+}
+
+[alt="thumb"] {
+  float: right;
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #fafafa;
+  padding: 5px;
+  border-radius: 3px
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: .3em;
+  overflow: auto;
+}
+
+p code {
+  background-color: #eee;
+  border-radius: .3em;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+blockquote:before {
+  color: #ccc;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}

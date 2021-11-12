@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>SPLOG</title>
+  <link>https://github.com/qualityshepherd/splog</link>
+  <description>A simple, single page blog app written in vanilla js...</description>
+  <language>en-us</language>
+  <item>
+    <title>Attack the dog then pretend like nothing happened</title>
+    <link>https://spl.og/#post?spost1</link>
+    <description>Attack the dog then pretend like nothing h</description>
+  </item>
+  <item>
+    <title>Need to check on human, have not seen in an hour might be dead</title>
+    <link>https://spl.og/#post?spost2</link>
+    <description>Need to check on human, have not seen in a</description>
+  </item>
+</channel>
+</rss>
