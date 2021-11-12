@@ -1,5 +1,5 @@
 {
-  "name": "spa-blog",
+  "name": "splog",
   "description": "A simple Single Page Blog...",
   "version": "1.0.0",
   "author": "brine",
@@ -12,10 +12,19 @@
     "pathToRssFolder": "./assets/rss",
     "maxPosts": "7"
   },
+  "standard": {
+    "globals": [
+      "t",
+      "fixture",
+      "test",
+      "throw"
+    ]
+  },
   "scripts": {
-    "test": "testcafe chrome e2e/tests/",
+    "test": "npm start && testcafe chrome e2e/tests/",
     "headless": "testcafe chrome:headless e2e/tests/",
     "testcafe": "testcafe",
+    "pretty": "npx standard --fix .",
     "pack": "webpack",
     "rss": "./node_modules/.bin/babel-node src/lib/genr8Blog.js",
     "pod": "./node_modules/.bin/babel-node src/lib/genr8Pod.js",

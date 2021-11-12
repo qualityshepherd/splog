@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   entry: './src/router.js',
@@ -7,7 +7,7 @@ module.exports = {
     filename: 'main.js'
   },
   optimization: {
-    minimize: false,
+    minimize: false
   },
   devtool: 'source-map'
 }

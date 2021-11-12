@@ -1,7 +1,7 @@
 import { readSiteIndex, sortByDate, renderTags } from '../utils'
 
 const blog = {
-  async render(params) {
+  async render (params) {
     const numPosts = params.get('numPosts') ? Number(params.get('numPosts')) + 1 : 1
     const index = await readSiteIndex()
     const sorted = await index.sort(sortByDate())
@@ -23,7 +23,7 @@ const blog = {
       </div>
       `
     // only show button if there are more to load
-    if(numPosts < sorted.length) posts += morePostsBtn
+    if (numPosts < sorted.length) posts += morePostsBtn
     return posts
   }
 }

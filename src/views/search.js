@@ -1,17 +1,17 @@
 import { readSiteIndex, sortByDate, renderTags } from '../utils'
 
 const search = {
-  async render(params) {
+  async render (params) {
     const q = params.get('q')
     const index = await readSiteIndex()
     const sorted = await index.sort(sortByDate())
-    const found = await sorted.filter(({meta, html}) => {
+    const found = await sorted.filter(({ meta, html }) => {
       return meta.title.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
              meta.tags.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
              html.toLowerCase().indexOf(q.toLowerCase()) > -1
     })
 
-    let posts = found.map(post => {
+    const posts = found.map(post => {
       return `
         <div class="post">
           <a href="#post?s=${post.meta.slug}"><h2 class="post-title">${post.meta.title}</h2></a>

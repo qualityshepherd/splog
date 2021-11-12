@@ -24,7 +24,7 @@ const routes = {
  * grab the hash, call the route and stuff it into the dom!
  */
 const router = async () => {
-  const {hash, params} = await getHash()
+  const { hash, params } = await getHash()
   document.querySelector('#main').innerHTML = await routes[hash].render(params)
 }
 

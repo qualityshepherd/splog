@@ -8,4 +8,3 @@ fixture`About Page`
 test('should render correctly', async t => {
   await t.expect(aboutPage.title.visible).ok()
 })
-

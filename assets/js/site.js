@@ -2,15 +2,15 @@
  * sitewide js... add to index.html
  */
 
-function isIE() {
+function isIE () {
   // IE 10 and IE 11
-  return /Trident\/|MSIE/.test(window.navigator.userAgent);
+  return /Trident\/|MSIE/.test(window.navigator.userAgent)
 }
 
-(function() {
-  if(document.documentMode || isIE()) {
-     /* browser is IE... */
-     const ieMsg = `
+(function () {
+  if (document.documentMode || isIE()) {
+    /* browser is IE... */
+    const ieMsg = `
         <!--[if IE]>
         <div class="iesucks" style="margin: 66px">
         <h2>This Site Does Not Support IE</h2>
@@ -18,6 +18,6 @@ function isIE() {
         </div>
         <![endif]-->
       `
-      return ieMsg
+    return ieMsg
   }
 })()

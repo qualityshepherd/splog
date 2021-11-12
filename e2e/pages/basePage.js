@@ -21,8 +21,8 @@ const basePage = {
    */
   async getUrl () {
     return await ClientFunction(() => {
-      return document.location.href;
-    })();
+      return document.location.href
+    })()
   }
 }
 export default basePage

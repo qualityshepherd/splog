@@ -7,7 +7,7 @@ const navbar = {
   searchInput: $('#search'),
   noResultsMsg: $('#no-results'),
 
-  async searchFor(text) {
+  async searchFor (text) {
     await t
       .typeText(this.searchInput, text)
       .pressKey('enter')
