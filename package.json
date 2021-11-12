@@ -21,7 +21,7 @@
     ]
   },
   "scripts": {
-    "test": "npm start && testcafe chrome e2e/tests/",
+    "test": "testcafe chrome e2e/tests/",
     "headless": "testcafe chrome:headless e2e/tests/",
     "testcafe": "testcafe",
     "pretty": "npx standard --fix .",
