@@ -1,4 +1,4 @@
-[![Codeship Status for qualityshepherd/splog](https://app.codeship.com/projects/91e3f554-3176-4d80-9448-b1070f88cca8/status?branch=master)](https://app.codeship.com/projects/417522)
+[![Codeship Status for qualityshepherd/splog](https://app.codeship.com/projects/9b3de3a6-f5c2-4d06-973e-3cc13665b9f7/status?branch=master)](https://app.codeship.com/projects/453467)
 
 # SPLOG
 _a simple, single page blog that features:_

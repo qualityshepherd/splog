@@ -30,7 +30,7 @@
     "pod": "./node_modules/.bin/babel-node src/lib/genr8Pod.js",
     "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
     "start": "npm run build:index && npm run rss && npm run pod && npm run pack",
-    "server": "npx http-server -p 4242"
+    "server": "http-server -p 4242"
   },
   "dependencies": {
     "showdown": "^1.9.0",
@@ -46,6 +46,7 @@
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.0",
     "babel-jest": "^27.3.1",
+    "http-server": "^14.0.0",
     "jest": "^27.3.1"
   }
 }
