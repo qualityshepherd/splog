@@ -59,6 +59,6 @@ const pod = {
 
   feed += `\n</channel>\n</rss>`
 
-  await fs.writeFile('./rss/pod.xml', feed, {encoding: "utf8"})
+  await fs.writeFile(`${config.splog.pathToRssFolder}/pod.xml`, feed, {encoding: "utf8"})
     .catch(err => throw err)
 })()

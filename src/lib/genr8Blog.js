@@ -25,6 +25,6 @@ import config from '../../package'
 
   feed += `\n</channel>\n</rss>`
 
-  await fs.writeFile('./rss/blog.xml', feed, {encoding: "utf8"})
+  await fs.writeFile(`${config.splog.pathToRssFolder}/blog.xml`, feed, {encoding: "utf8"})
     .catch(err => throw err)
 })()

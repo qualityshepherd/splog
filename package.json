@@ -7,8 +7,9 @@
   "main": "index.html",
   "splog": {
     "url": "http://lvh.me:4242/",
-    "pathToIndex": "./src/siteIndex.json",
-    "pathToPostsFolder": "./posts",
+    "pathToIndex": "./src/data/siteIndex.json",
+    "pathToPostsFolder": "./assets/posts",
+    "pathToRssFolder": "./assets/rss",
     "maxPosts": "7"
   },
   "scripts": {
@@ -23,7 +24,7 @@
     "server": "npx http-server -p 4242"
   },
   "dependencies": {
-    "showdown": "^1.9.1",
+    "showdown": "^1.9.0",
     "testcafe": "^1.15.0",
     "webpack": "^5.2.0",
     "webpack-cli": "^4.1.0"
@@ -35,7 +36,7 @@
     "@babel/plugin-proposal-throw-expressions": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.0",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3"
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1"
   }
 }

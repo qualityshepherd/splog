@@ -5,7 +5,7 @@ const about = {
       <h2>About</h2>
 
       <div id="about">
-      <a href="https://github.com/qualityshepherd/splog">Splog</a> is a simple, single page blog app written in vanilla js...
+      <a href="https://github.com/qualityshepherd/splog">Splog</a> is a simple, single page, markdown blog app written in vanilla js...
       </div>
     `
   }
