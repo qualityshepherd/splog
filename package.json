@@ -31,7 +31,7 @@
     "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
     "prestart": "pkill -f http-server",
     "start": "npm run build:index && npm run rss && npm run pod && npm run pack",
-    "server:prod": "http-server -p 80",
+    "server:prod": "http-server -p 80 &",
     "server": "http-server -p 4242"
   },
   "dependencies": {
