@@ -41,6 +41,7 @@ main {
 }
 
 #hamburger {
+  margin-left: 15px;
   margin-top: 15px;
   font-size: 250%;
   line-height: 50px;
@@ -48,13 +49,14 @@ main {
 
 nav #links {
   position: fixed;
+  padding-bottom: 15px;
   display: none;
   font-weight: 500;
   background-color: var(--bg-darker);
   z-index: 1;
 }
 
-nav a, nav form {
+#links a, #links form {
   margin-left: 15px;
   border: none;
   display: block;
