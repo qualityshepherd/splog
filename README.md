@@ -1,3 +1,5 @@
+[![Deploy static content to Pages](https://github.com/qualityshepherd/splog/actions/workflows/deploy2pages.yml/badge.svg)](https://github.com/qualityshepherd/splog/actions/workflows/deploy2pages.yml)
+
 # SPLOG
 _a simple, static, single page blog that features:_
 
