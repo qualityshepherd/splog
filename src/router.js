@@ -49,3 +49,8 @@ const getHash = async () => {
 // and we're listening...
 window.addEventListener('hashchange', router)
 window.addEventListener('load', router)
+window.addEventListener('keyup', e => {
+  if (e.keyCode == 27) {
+    toggleHamburger();
+  }
+})
