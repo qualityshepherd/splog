@@ -50,7 +50,6 @@ main {
 
 nav #links {
   position: fixed;
-  padding-bottom: 15px;
   display: none;
   font-weight: 500;
   background-color: var(--bg-darker);
@@ -59,7 +58,8 @@ nav #links {
 
 #links a, #links form {
   margin-left: 15px;
-  margin-top: 5px;
+  margin-top: 10px;
+  font-size: 125%;
   border: none;
   display: block;
 }
