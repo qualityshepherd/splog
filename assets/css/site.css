@@ -105,6 +105,7 @@ nav #links {
 }
 
 #more-posts {
+  margin-bottom: 15px;
   font-size: 90%;
   text-align: center;
   color: var(--bg-darker);
