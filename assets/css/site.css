@@ -45,6 +45,7 @@ main {
   margin-top: 15px;
   font-size: 250%;
   line-height: 50px;
+  border: none;
 }
 
 nav #links {
