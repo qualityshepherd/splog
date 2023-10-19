@@ -59,6 +59,7 @@ nav #links {
 
 #links a, #links form {
   margin-left: 15px;
+  margin-top: 5px;
   border: none;
   display: block;
 }
