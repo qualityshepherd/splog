@@ -42,6 +42,3 @@ _a simple, single page blog that features:_
 1. open `lib/podRss.js` and edit the `pod` information to match your podcast
 2. `npm run pod` or `npm start` to build the xml file `podRss.xml`
 3. submit the link to the file (eg. `https://mydomain.com/podRss.xml`) to aggregatrors (eg. Spotify)
-
-## Demo
-My blog is running on splog! https://qualityshepherd.com
