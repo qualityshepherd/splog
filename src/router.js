@@ -50,7 +50,7 @@ const getHash = async () => {
 window.addEventListener('hashchange', router)
 window.addEventListener('load', router)
 window.addEventListener('keyup', e => {
-  if (e.keyCode == 27) {
-    toggleHamburger();
+  if (e.keyCode === 27) {
+    toggleHamburger() // eslint-disable-line
   }
 })

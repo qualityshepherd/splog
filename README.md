@@ -3,6 +3,8 @@
 # SPLOG
 _a simple, static, single page blog that features:_
 
+**DEMO**: https://qualityshepherd.github.io/splog/
+
 - Markdown support for posts (with YAML metadata)
 - simple `#hash` routing
 - index searching
