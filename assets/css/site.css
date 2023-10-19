@@ -5,9 +5,32 @@
   font-style: oblique 0deg 10deg;
   src: url("/assets/fonts/Inter.var.woff2?v=3.12") format("woff2");
 }
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Inter-Italic.woff2?v=3.12") format("woff2")
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("Inter-Bold.woff2?v=3.12") format("woff2")
+
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("Inter-BoldItalic.woff2?v=3.12") format("woff2")
+}
 
 @font-face {
-  font-family: "intelone-mono";
+  font-family: "mono";
+  font-weight: 400;
   src: url(/assets/fonts/intelone-mono-font-family-regular.otf);
 }
 
@@ -22,7 +45,7 @@
   --alt3: #957A65;
   --border: #4B4B4B;
   --header-font: "Inter";
-  --mono-font: "intelone-mono";
+  --mono-font: "mono";
 }
 
 body {
