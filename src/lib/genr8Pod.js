@@ -3,28 +3,30 @@ import config from '../../package'
 
 // change these to match your pod...
 const pod = {
-  title: 'Splog Podcast',
-  link: 'https://github.com/qualityshepherd/splog',
-  description: 'A simple, single page blog app written in vanilla js...',
-  imageUrl: 'http://lvh.me:4242/assets/images/ipsum.jpg',
-  author: 'Splog',
-  explicit: 'no',
-  email: 'me@test.com',
-  podUrl: 'http://lvh.me:4242/blogRss.xml'
+  title: 'Splog',
+  link: 'https://brine.dev',
+  description: 'A simple, single page, blog app written in vanilla js that supports markdown, rss, podcasts and more!',
+  image: '/assets/images/default.svg',
+  author: 'brine',
+  explicit: 'yes',
+  email: 'junk@brine.dev',
+  podUrl: 'https://brine.dev/assets/rss/pod.xml'
 };
 
 /**
  * create a podcast rss xml file
  */
 (async () => {
-  const index = await fs.readFile(config.splog.pathToIndex, {encoding: "utf8"})
-    .catch(err => throw err)
+  const index = await fs.readFile(config.splog.pathToIndex, { encoding: 'utf8' })
+    .catch(err => console.log(err))
   const posts = JSON.parse(index)
-  const podcasts = posts.filter(({meta}) => {
-    return meta.tags.toLowerCase().indexOf('podcast') > -1
+  const podcasts = posts.filter(({ meta }) => { // eslint-disable-line
+    if (meta.tags) {
+      return meta.tags.toLowerCase().indexOf('podcast') > -1
+    }
   })
   // pull the audio tag from posts...
-  const audioRegExp = /<audio.*?src="(.*?)"/;
+  const audioRegExp = /<audio.*?src="(.*?)"/
 
   let feed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0"
@@ -35,6 +37,7 @@ const pod = {
   <link>${pod.link}</link>
   <description>${pod.description}</description>
   <language>en-us</language>
+  <image href="${pod.image}" />
   <itunes:image href="${pod.image}" />
   <itunes:author>${pod.author}</itunes:author>
   <itunes:explicit>${pod.explicit}</itunes:explicit>
@@ -44,7 +47,6 @@ const pod = {
   </itunes:owner>
   <atom:link href="${pod.podUrl}" rel="self" type="application/rss+xml" />`
 
-  // from posts
   podcasts.forEach(podcast => {
     feed += `
   <item>
@@ -54,11 +56,23 @@ const pod = {
     <enclosure url="https://brine.dev/${podcast.html.match(audioRegExp)[1]}" type="audio/mpeg" length="1024"></enclosure>
     <pubDate>${new Date(podcast.meta.date).toUTCString()}</pubDate>
     <guid>https://brine.dev/#post?s${podcast.meta.slug}</guid>
+    <image href="${getImage(podcast)}" />
+    <itunes:image href="${getImage(podcast)}" />
  </item>`
   })
 
-  feed += `\n</channel>\n</rss>`
+  feed += '\n</channel>\n</rss>'
 
-  await fs.writeFile(`${config.splog.pathToRssFolder}/pod.xml`, feed, {encoding: "utf8"})
-    .catch(err => throw err)
+  await fs.writeFile(`${config.splog.pathToRssFolder}/pod.xml`, feed, { encoding: 'utf8' })
+    .catch(err => console.log(err))
 })()
+
+/**
+ * set image if exists or use default
+ * @param  {obj}
+ * @return {string} - image url
+ */
+function getImage (podobj) {
+  // if the image is set in the meta data
+  return podobj.meta.image ? podobj.meta.image : '/assets/images/default.svg'
+}

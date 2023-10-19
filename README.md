@@ -1,5 +1,3 @@
-[![Codeship Status for qualityshepherd/splog](https://app.codeship.com/projects/9b3de3a6-f5c2-4d06-973e-3cc13665b9f7/status?branch=main)](https://app.codeship.com/projects/453467)
-
 # SPLOG
 _a simple, single page blog that features:_
 

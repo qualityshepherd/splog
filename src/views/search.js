@@ -1,25 +1,42 @@
-import { readSiteIndex, sortByDate } from '../utils'
-import { blogTemplate } from '../templates'
+import { readSiteIndex, sortByDate, renderTags } from '../utils'
 
 const search = {
   async render (params) {
-    const q = params.get('q')
+    const q = params.get('q').toLowerCase()
     const index = await readSiteIndex()
     const sorted = await index.sort(sortByDate())
     const found = await sorted.filter(({ meta, html }) => {
-      return meta.title.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
-             meta.tags.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
-             html.toLowerCase().indexOf(q.toLowerCase()) > -1
+      return meta.title.toLowerCase().indexOf(q) > -1 ||
+             meta.tags.toLowerCase().indexOf(q) > -1 ||
+             html.toLowerCase().indexOf(q) > -1
     })
 
     const posts = found.map(post => {
-      return blogTemplate(post)
+      return `
+        <article class="post border">
+          <a href="#post?s=${post.meta.slug}"><h2 class="post-title">${post.meta.title}</h2></a>
+          <div class="date">${post.meta.date}</div>
+          <div>${post.html}</div>
+          <span class="tags">${renderTags(post.meta.tags, '#tags')}</span>
+        </article>
+        `
     }).join('\n')
 
     const noResults = `
-      <h2 id="no-results">No Results Found</h2>
+      <h2 id="no-results">No Results Found...</h2>
     `
     return (posts.length > 0) ? posts : noResults
   }
 }
 export default search
+
+// search = async (query) => {
+//   const monsters = await getJsonData(monsterData)
+//   const found = monsters.filter(({name, special_qualities, setting, description}) => {
+//     return name.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+//            special_qualities.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+//            setting.toLowerCase().indexOf(query.toLowerCase()) > -1
+//            description.toLowerCase().indexOf(query.toLowerCase()) > -1
+//    })
+//   render(monsterTemplate, found.sort(sortBy('name')))
+// }

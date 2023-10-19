@@ -3,17 +3,18 @@
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Splog Podcast</title>
-  <link>https://github.com/qualityshepherd/splog</link>
-  <description>A simple, single page blog app written in vanilla js...</description>
+  <title>Splog</title>
+  <link>https://brine.dev</link>
+  <description>A simple, single page, blog app written in vanilla js that supports markdown, rss, podcasts and more!</description>
   <language>en-us</language>
-  <itunes:image href="undefined" />
-  <itunes:author>Splog</itunes:author>
-  <itunes:explicit>no</itunes:explicit>
+  <image href="/assets/images/default.svg" />
+  <itunes:image href="/assets/images/default.svg" />
+  <itunes:author>brine</itunes:author>
+  <itunes:explicit>yes</itunes:explicit>
   <itunes:category text="Leisure" />
   <itunes:owner>
-    <itunes:email>me@test.com</itunes:email>
+    <itunes:email>junk@brine.dev</itunes:email>
   </itunes:owner>
-  <atom:link href="http://lvh.me:4242/blogRss.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="https://brine.dev/assets/rss/pod.xml" rel="self" type="application/rss+xml" />
 </channel>
 </rss>

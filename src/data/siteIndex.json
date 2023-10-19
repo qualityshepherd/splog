@@ -1,6 +1,16 @@
 [
   {
     "meta": {
+      "title": "This is a Draft!",
+      "date": "2021-02-08",
+      "tags": "tag1, tag2",
+      "slug": "draft_should_not_be_added_to_index"
+    },
+    "markdown": "---\ntitle: This is a Draft!\ndate: 2021-02-08\ntags: tag1, tag2\n---\n\nFiles that start with `draft_` should not be processed\n\n",
+    "html": "<p>Files that start with <code>draft_</code> should not be processed</p>"
+  },
+  {
+    "meta": {
       "title": "Attack the dog then pretend like nothing happened",
       "date": "2021-7-17",
       "tags": "panic",

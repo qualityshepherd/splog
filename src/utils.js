@@ -7,8 +7,9 @@ import config from '../package'
 
 export async function readSiteIndex (pathToIndex = config.splog.pathToIndex) {
   const data = await fetch(pathToIndex)
-    .catch(err => { err })
-  return await data.json()
+    .catch(err => { console.log(err) })
+  const index = await data.json()
+  return index.sort(sortByDate())
 }
 
 export function sortBy (prop) {
@@ -19,8 +20,8 @@ export function sortBy (prop) {
 
 export function sortByDate (asc = true) {
   return (a, b) => {
-    a = new Date(a.meta.date)
-    b = new Date(b.meta.date)
+    a = new Date(a.meta.date.replace(/-/g, '/')) // because safari is trash
+    b = new Date(b.meta.date.replace(/-/g, '/'))
     if (asc) {
       return (a < b) ? 1 : a > b ? -1 : 0
     } else {
@@ -29,15 +30,15 @@ export function sortByDate (asc = true) {
   }
 }
 
-export function renderTags (tagString) {
+export function renderTags (tagString, hash = '#tags') {
   if (tagString) {
-    return tagString.toLowerCase().split(',').map(tag => {
-      return `<a href="#tags?t=${tag}">${tag}</a>`
+    return tagString.toLowerCase().split(/,\s?/).map(tag => {
+      return `<a href="${hash}?t=${tag}">${tag}</a>`
     }).join(', ')
   }
 }
 
-export function getFirstImgSrc (htmlString) {
-  const img = htmlString.match(/assets.*\.(gif|jpe?g|png)/)
-  return `${config.splog.url}${img[0]}`
+export async function getJsonData (path) {
+  const data = await fetch(path)
+  return await data.json()
 }

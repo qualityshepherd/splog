@@ -21,3 +21,13 @@ function isIE () {
     return ieMsg
   }
 })()
+
+/* eslint-disable no-unused-vars */
+function toggleHamburger () {
+  const links = document.querySelector('nav #links')
+  if (links.style.display === 'block') { // is visible
+    links.style.display = 'none'
+  } else {
+    links.style.display = 'block'
+  }
+}

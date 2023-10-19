@@ -1,4 +1,3 @@
-
 const about = {
   render () {
     return `
