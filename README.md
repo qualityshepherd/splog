@@ -1,5 +1,5 @@
 # SPLOG
-_a simple, single page blog that features:_
+_a simple, static, single page blog that features:_
 
 - Markdown support for posts (with YAML metadata)
 - simple `#hash` routing
