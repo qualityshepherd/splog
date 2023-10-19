@@ -1,23 +1,16 @@
 @font-face {
   font-family: 'Inter';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: oblique 0deg 10deg;
-  src: url("/assets/fonts/Inter.var.woff2?v=3.12") format("woff2");
-}
-@font-face {
-  font-family: 'Inter';
   font-style:  italic;
   font-weight: 400;
   font-display: swap;
-  src: url("Inter-Italic.woff2?v=3.12") format("woff2")
+  src: url("/splog/assets/fonts/Inter-Italic.woff2?v=3.12") format("woff2")
 }
 @font-face {
   font-family: 'Inter';
   font-style:  normal;
   font-weight: 700;
   font-display: swap;
-  src: url("Inter-Bold.woff2?v=3.12") format("woff2")
+  src: url("/splog/assets/fonts/Inter-Bold.woff2?v=3.12") format("woff2")
 
 }
 @font-face {
@@ -25,13 +18,13 @@
   font-style:  italic;
   font-weight: 700;
   font-display: swap;
-  src: url("Inter-BoldItalic.woff2?v=3.12") format("woff2")
+  src: url("/splog/assets/fonts/Inter-BoldItalic.woff2?v=3.12") format("woff2")
 }
 
 @font-face {
   font-family: "mono";
   font-weight: 400;
-  src: url(/assets/fonts/intelone-mono-font-family-regular.otf);
+  src: url(/splog/assets/fonts/intelone-mono-font-family-regular.otf);
 }
 
 :root {
