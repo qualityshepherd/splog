@@ -47,8 +47,9 @@ main {
 }
 
 nav #links {
-  display: none;
   position: fixed;
+  display: none;
+  font-weight: 500;
   background-color: var(--bg-darker);
   z-index: 1;
 }
