@@ -11,7 +11,7 @@ const pod = {
   explicit: 'yes',
   email: 'junk@brine.dev',
   podUrl: 'https://brine.dev/assets/rss/pod.xml'
-}
+}; // required ;
 
 /**
  * create a podcast rss xml file
@@ -20,7 +20,6 @@ const pod = {
   const index = await fs.readFile(config.splog.pathToIndex, { encoding: 'utf8' })
     .catch(err => console.log(err))
   const posts = JSON.parse(index)
-
   // filter out posts that are NOT tagged as podcast
   const podcasts = posts.filter(({ meta }) => { // eslint-disable-line
     if (meta.tags) {
