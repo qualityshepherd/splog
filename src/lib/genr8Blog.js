@@ -11,20 +11,20 @@ import config from '../../package'
   let feed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>World of Brine Blog</title>
-  <link>https://brine.dev</link>
-  <description>Home of Beats &amp; Barrows: an uncomplicated fantasy rpg. You'll also find a blog, tools and an actual play, RPG podcast...</description>
+  <title>SPLOG</title>
+  <link>${config.splog.url}</link>
+  <description>A simple, single page, blog written in vanilla js that supports markdown, rss, podcasts and deploys to github pages (github.io).</description>
   <language>en-us</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  <atom:link href="https://brine.dev/assets/rss/blog.xml" rel="self" type="application/rss+xml" />`
+  <atom:link href="${config.splog.url}/assets/rss/blog.xml" rel="self" type="application/rss+xml" />`
 
   sorted.forEach(post => {
     feed += `
   <item>
     <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>
     <title>${post.meta.title}</title>
-    <link>https://brine.dev/#post?s=${post.meta.slug}</link>
-    <guid>https://brine.dev/#post?s=${post.meta.slug}</guid>
+    <link>${config.splog.url}/#post?s=${post.meta.slug}</link>
+    <guid>${config.splog.url}/#post?s=${post.meta.slug}</guid>
     <description><![CDATA[${post.html}]]></description>
   </item>`
   })

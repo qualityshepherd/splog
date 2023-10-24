@@ -4,7 +4,7 @@
   xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Splog</title>
-  <link>https://brine.dev</link>
+  <link>https://qualityshepherd.github.io/splog</link>
   <description>A simple, single page, blog app written in vanilla js that supports markdown, rss, podcasts and more!</description>
   <language>en-us</language>
   <image href="/assets/images/default.svg" />
@@ -15,6 +15,6 @@
   <itunes:owner>
     <itunes:email>junk@brine.dev</itunes:email>
   </itunes:owner>
-  <atom:link href="https://brine.dev/assets/rss/pod.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="https://qualityshepherd.github.io/splog/assets/rss/pod.xml" rel="self" type="application/rss+xml" />
 </channel>
 </rss>

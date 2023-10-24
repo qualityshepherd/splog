@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "index.html",
   "splog": {
-    "url": "http://lvh.me:4242/",
+    "url": "https://qualityshepherd.github.io/splog",
     "pathToIndex": "./src/data/siteIndex.json",
     "pathToPostsFolder": "./assets/posts",
     "pathToRssFolder": "./assets/rss",

@@ -29,14 +29,3 @@ const search = {
   }
 }
 export default search
-
-// search = async (query) => {
-//   const monsters = await getJsonData(monsterData)
-//   const found = monsters.filter(({name, special_qualities, setting, description}) => {
-//     return name.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
-//            special_qualities.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
-//            setting.toLowerCase().indexOf(query.toLowerCase()) > -1
-//            description.toLowerCase().indexOf(query.toLowerCase()) > -1
-//    })
-//   render(monsterTemplate, found.sort(sortBy('name')))
-// }

@@ -4,13 +4,13 @@ import config from '../../package'
 // change these to match your pod...
 const pod = {
   title: 'Splog',
-  link: 'https://brine.dev',
+  link: config.splog.url,
   description: 'A simple, single page, blog app written in vanilla js that supports markdown, rss, podcasts and more!',
   image: '/assets/images/default.svg',
   author: 'brine',
   explicit: 'yes',
   email: 'junk@brine.dev',
-  podUrl: 'https://brine.dev/assets/rss/pod.xml'
+  podUrl: `${config.splog.url}/assets/rss/pod.xml`
 }; // required ;
 
 /**
@@ -53,11 +53,11 @@ const pod = {
     feed += `
   <item>
     <title>${podcast.meta.title}</title>
-    <link>https://brine.dev/#post?s${podcast.meta.slug}</link>
+    <link>${config.splog.url}/#post?s${podcast.meta.slug}</link>
     <description>${podcast.meta.description}</description>
-    <enclosure url="https://brine.dev/${podcast.html.match(audioRegExp)[1]}" type="audio/mpeg" length="1024"></enclosure>
+    <enclosure url="${config.splog.url}/${podcast.html.match(audioRegExp)[1]}" type="audio/mpeg" length="1024"></enclosure>
     <pubDate>${new Date(podcast.meta.date).toUTCString()}</pubDate>
-    <guid>https://brine.dev/#post?s${podcast.meta.slug}</guid>
+    <guid>${config.splog.url}/#post?s${podcast.meta.slug}</guid>
     <image href="${getImage(podcast)}" />
     <itunes:image href="${getImage(podcast)}" />
  </item>`
@@ -76,5 +76,5 @@ const pod = {
  */
 function getImage (podobj) {
   // if the image is set in the meta data
-  return podobj.meta.image ? podobj.meta.image : '/assets/images/default.svg'
+  return podobj.meta.image ? podobj.meta.image : `${config.splog.url}/assets/images/default.svg`
 }
