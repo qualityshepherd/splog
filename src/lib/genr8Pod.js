@@ -10,7 +10,7 @@ const pod = {
   author: 'brine',
   explicit: 'yes',
   email: 'junk@brine.dev',
-  podUrl: `${config.splog.url}/assets/rss/pod.xml`
+  podRss: `${config.splog.url}/assets/rss/pod.xml`
 }; // required ;
 
 /**
@@ -36,18 +36,22 @@ const pod = {
   xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>${pod.title}</title>
-  <link>${pod.link}</link>
+  <link>${pod.url}</link>
   <description>${pod.description}</description>
   <language>en-us</language>
-  <image href="${pod.image}" />
   <itunes:image href="${pod.image}" />
+  <image>
+    <url>${pod.image}</url>
+    <title>SPLOG</title>
+    <link>${pod.url}</link>
+  </image>
   <itunes:author>${pod.author}</itunes:author>
   <itunes:explicit>${pod.explicit}</itunes:explicit>
   <itunes:category text="Leisure" />
   <itunes:owner>
     <itunes:email>${pod.email}</itunes:email>
   </itunes:owner>
-  <atom:link href="${pod.podUrl}" rel="self" type="application/rss+xml" />`
+  <atom:link href="${pod.podRss}" rel="self" type="application/rss+xml" />`
 
   podcasts.forEach(podcast => {
     feed += `
