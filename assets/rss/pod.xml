@@ -4,11 +4,15 @@
   xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Splog</title>
-  <link>https://qualityshepherd.github.io/splog</link>
+  <link>undefined</link>
   <description>A simple, single page, blog app written in vanilla js that supports markdown, rss, podcasts and more!</description>
   <language>en-us</language>
-  <image href="/assets/images/default.svg" />
   <itunes:image href="/assets/images/default.svg" />
+  <image>
+    <url>/assets/images/default.svg</url>
+    <title>SPLOG</title>
+    <link>undefined</link>
+  </image>
   <itunes:author>brine</itunes:author>
   <itunes:explicit>yes</itunes:explicit>
   <itunes:category text="Leisure" />

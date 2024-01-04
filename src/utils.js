@@ -33,7 +33,7 @@ export function sortByDate (asc = true) {
 export function renderTags (tagString, hash = '#tags') {
   if (tagString) {
     return tagString.toLowerCase().split(/,\s?/).map(tag => {
-      return `<a href="${hash}?t=${tag}">${tag}</a>`
+      return `<a href="${hash}?t=${tag}" role="button" aria-label="${tag}-tag">${tag}</a>`
     }).join(', ')
   }
 }

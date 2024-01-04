@@ -17,11 +17,11 @@
 
 <header id="header">
   <nav>
-    <a href="javascript:void(0);" id="hamburger" onclick="toggleHamburger()">&#8801;</a>
+    <a href="javascript:void(0);" id="hamburger" onclick="toggleHamburger()" role="button" aria-label="menu">&#8801;</a>
     <div id="links">
       <a href="/splog/" class="active">Blog</a>
       <a href="#about">About</a>
-      <form action="#search?q=" onsubmit="location.href=this.action+q.value; return false">
+      <form action="#search?q=" onsubmit="location.href=this.action+q.value; return false" aria-label="search">
         <input id="search" name="q" type="text" placeholder="search...">
       </form>
   </div>
