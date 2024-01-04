@@ -19,7 +19,7 @@ const blog = {
 
     const morePostsBtn = `
       <div class="container center">
-        <a href="#blog?numPosts=${numPosts}"><button id="more-posts">More posts...</button></a>
+        <a href="#blog?numPosts=${numPosts}" role="button"><button id="more-posts">More posts...</button></a>
       </div>
       `
     // only show button if there are more to load
