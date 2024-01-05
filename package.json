@@ -23,7 +23,8 @@
     "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
     "rss:blog": "./node_modules/.bin/babel-node src/lib/genr8Blog.js",
     "rss:pod": "./node_modules/.bin/babel-node src/lib/genr8Pod.js",
-    "start": "npm run build:index && npm run rss:blog && npm run rss:pod && npm run pack",
+    "rss:sitemap": "./node_modules/.bin/babel-node src/lib/genr8Sitemap.js",
+    "start": "npm run build:index && npm run rss:blog && npm run rss:pod && npm run rss:sitemap && npm run pack",
     "server": "http-server -p 4242",
     "restart": "npm start; npm run server"
   },
