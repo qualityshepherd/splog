@@ -6,6 +6,8 @@
   "license": "MIT",
   "main": "index.html",
   "splog": {
+    "title": "SPLOG",
+    "description": "A simple, static, single page blog written in vanilla javascript...",
     "url": "https://qualityshepherd.github.io/splog",
     "pathToIndex": "./src/data/siteIndex.json",
     "pathToPostsFolder": "./assets/posts",

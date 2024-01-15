@@ -1,6 +1,6 @@
 import { sortByDate } from '../utils'
 import { promises as fs } from 'fs'
-import config from '../../package'
+import config from '../../package' // config is in package.json
 
 (async () => {
   const index = await fs.readFile(config.splog.pathToIndex, { encoding: 'utf8' })
@@ -11,9 +11,9 @@ import config from '../../package'
   let feed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>SPLOG</title>
+  <title>${config.splog.title}</title>
   <link>${config.splog.url}</link>
-  <description>A simple, single page, blog written in vanilla js that supports markdown, rss, podcasts and deploys to github pages (github.io).</description>
+  <description>${config.splog.description}</description>
   <language>en-us</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
   <atom:link href="${config.splog.url}/assets/rss/blog.xml" rel="self" type="application/rss+xml" />`

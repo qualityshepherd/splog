@@ -1,4 +1,13 @@
 @font-face {
+  font-family: 'Big_Shoulders';
+  font-style:  normal;
+  font-weight: 420;
+  font-display: swap;
+  src: url("../fonts/BigShouldersText-Medium.ttf") format("truetype")
+
+}
+
+@font-face {
   font-family: 'Inter';
   font-style:  italic;
   font-weight: 420;
@@ -45,6 +54,7 @@
   --alt2: #79808A;
   --alt3: #957A65;
   --border: #4B4B4B;
+  --header-font: "Big_Shoulders";
   --header-font: "Inter";
   --mono-font: "mono";
 }
@@ -99,6 +109,7 @@ nav #links {
   display: none;
   font-weight: 500;
   background-color: var(--bg-darker);
+  padding: 0 15px 15px 0;
   z-index: 1;
 }
 
@@ -131,7 +142,18 @@ nav #links {
   border-radius: 15px
 }
 
-.small {
+img {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: inherit !important;
+}
+
+.small, .date {
   margin: 15px;
   font-size: 80%;
   text-align: center;

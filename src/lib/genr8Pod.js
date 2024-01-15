@@ -3,10 +3,10 @@ import config from '../../package'
 
 // change these to match your pod...
 const pod = {
-  title: 'Splog',
+  title: config.splog.title,
   link: config.splog.url,
-  description: 'A simple, single page, blog app written in vanilla js that supports markdown, rss, podcasts and more!',
-  image: '/assets/images/default.svg',
+  description: config.splog.description,
+  image: `${config.splog.url}/assets/images/catface.svg`,
   author: 'brine',
   explicit: 'yes',
   email: 'junk@brine.dev',
@@ -42,8 +42,8 @@ const pod = {
   <itunes:image href="${pod.image}" />
   <image>
     <url>${pod.image}</url>
-    <title>SPLOG</title>
-    <link>${pod.url}</link>
+    <title>${pod.title}</title>
+    <link>${pod.link}</link>
   </image>
   <itunes:author>${pod.author}</itunes:author>
   <itunes:explicit>${pod.explicit}</itunes:explicit>

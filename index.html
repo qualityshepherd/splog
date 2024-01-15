@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>A Single Page Blog | Splog</title>
+  <title>A Simple, Static, Single Page Blog Written in Vanilla JS | Splog</title>
   <meta charset="utf-8">
   <meta name="description" content="A vanilla js, single page blog...">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:url" content="http://lvh.me:4242/">
-  <meta property="og:image" content="http://lvh.me:4242/images/ipsum.jpg">
+   <meta property="og:description" content="A single page blog written in vanilla js...">
+ <meta property="og:image" content="http://lvh.me:4242/images/ipsum.jpg">
   <meta property="og:image:width" content="360">
   <meta property="og:image:height" content="360">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="assets/rss/sitemap.xml">
+    <link rel="preload" href="/assets/fonts/BigShouldersText-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="icon" href="favicon.svg">
 </head>
@@ -20,7 +24,7 @@
   <nav>
     <a href="javascript:void(0);" id="hamburger" onclick="toggleHamburger()" role="button" aria-label="menu">&#8801;</a>
     <div id="links">
-      <a href="/splog/" class="active">Blog</a>
+      <a href="#blog" class="active">Blog</a>
       <a href="#about">About</a>
       <form action="#search?q=" onsubmit="location.href=this.action+q.value; return false" aria-label="search">
         <input id="search" name="q" type="text" placeholder="search...">

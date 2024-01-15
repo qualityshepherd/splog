@@ -26,6 +26,19 @@ const routes = {
 const router = async () => {
   const { hash, params } = await getHash()
   document.querySelector('main').innerHTML = await routes[hash].render(params)
+  setActiveNav(hash)
+}
+
+/**
+ * set the active nav element if it exists
+ * @param  {string} hash
+ */
+const setActiveNav = async (hash) => {
+  const nav = document.querySelector(`[href="${hash}"]`)
+  if (nav) {
+    document.querySelector('.active').classList.remove('active')
+    nav.classList.add('active')
+  }
 }
 
 /**
