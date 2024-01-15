@@ -246,15 +246,15 @@ h6 {
 }
 
 h2 {
-  font-size: 250%;
+  font-size: 350%;
   text-align: center;
-  color: var(--header);
+  color: var(--header-font);
   margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
 
 h3, .names {
-  font-size: 200%;
+  font-size: 250%;
   color: var(--header);
   margin-bottom: 15px;
   margin-top: 60px;
