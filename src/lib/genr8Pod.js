@@ -36,7 +36,7 @@ const pod = {
   xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>${pod.title}</title>
-  <link>${pod.url}</link>
+  <link>${pod.link}</link>
   <description>${pod.description}</description>
   <language>en-us</language>
   <itunes:image href="${pod.image}" />
