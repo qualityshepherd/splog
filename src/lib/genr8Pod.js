@@ -9,7 +9,7 @@ const pod = {
   image: `${config.splog.url}/assets/images/catface.svg`,
   author: 'brine',
   explicit: 'yes',
-  email: 'junk@brine.dev',
+  email: 'junk@example.com',
   podRss: `${config.splog.url}/assets/rss/pod.xml`
 }; // required ;
 

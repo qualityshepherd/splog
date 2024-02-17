@@ -17,7 +17,7 @@
   <itunes:explicit>yes</itunes:explicit>
   <itunes:category text="Leisure" />
   <itunes:owner>
-    <itunes:email>junk@brine.dev</itunes:email>
+    <itunes:email>junk@example.com</itunes:email>
   </itunes:owner>
   <atom:link href="https://qualityshepherd.github.io/splog/assets/rss/pod.xml" rel="self" type="application/rss+xml" />
 </channel>
