@@ -245,6 +245,10 @@ h6 {
   font-family: var(--header-font);
 }
 
+h1 {
+  display:none;
+}
+
 h2 {
   font-size: 350%;
   text-align: center;

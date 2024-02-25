@@ -1,4 +1,5 @@
 import { readSiteIndex, renderTags } from '../utils'
+import config from '../../package'
 
 // single blog post...
 const post = {
@@ -9,6 +10,7 @@ const post = {
     })
 
     return `
+        <link rel="canonical" href="${config.splog.url}/#post">
         <div class="post">
           <a href="#post?s=${post.meta.slug}" role="button"><h2 class="post-title">${post.meta.title}</h2></a>
           <div class="date">${post.meta.date}</div>

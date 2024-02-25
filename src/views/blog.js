@@ -1,10 +1,12 @@
 import { readSiteIndex, renderTags, sortByDate } from '../utils'
+import config from '../../package'
 
 const blog = {
   async render (params) {
     const numPosts = params.get('numPosts') ? Number(params.get('numPosts')) + 1 : 1
     const index = await readSiteIndex()
     const sorted = await index.sort(sortByDate())
+    const canonicalLink = `<link rel="canonical" href="${config.splog.url}">` // for seo
 
     let posts = sorted.slice(0, numPosts).map(post => {
       return `
@@ -24,6 +26,7 @@ const blog = {
       `
     // only show button if there are more to load
     if (numPosts < sorted.length) posts += morePostsBtn
+    posts += canonicalLink // for seo
     return posts
   }
 }
