@@ -1,11 +1,11 @@
-import { readSiteIndex, sortByDate, renderTags } from '../utils'
+import { readSiteIndex, removeFuturePosts, sortByDate, renderTags } from '../utils'
 
 const search = {
   async render (params) {
     const q = params.get('q').toLowerCase()
     const index = await readSiteIndex()
-    const sorted = await index.sort(sortByDate())
-    const found = await sorted.filter(({ meta, html }) => {
+    const publishedPosts = removeFuturePosts(index) // don't display posts with future date
+    const found = await publishedPosts.filter(({ meta, html }) => {
       return meta.title.toLowerCase().indexOf(q) > -1 ||
              meta.tags.toLowerCase().indexOf(q) > -1 ||
              html.toLowerCase().indexOf(q) > -1

@@ -1,4 +1,4 @@
-import { sortByDate } from '../utils'
+import { removeFuturePosts, sortByDate } from '../utils'
 import { promises as fs } from 'fs'
 import config from '../../package' // config is in package.json
 
@@ -6,7 +6,7 @@ import config from '../../package' // config is in package.json
   const index = await fs.readFile(config.splog.pathToIndex, { encoding: 'utf8' })
     .catch(err => console.log(err))
   const posts = JSON.parse(index)
-  const sorted = posts.sort(sortByDate())
+  const publishedPosts = removeFuturePosts(posts) // don't display posts with future date
 
   let feed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -18,7 +18,7 @@ import config from '../../package' // config is in package.json
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
   <atom:link href="${config.splog.url}/assets/rss/blog.xml" rel="self" type="application/rss+xml" />`
 
-  sorted.forEach(post => {
+  publishedPosts.forEach(post => {
     feed += `
   <item>
     <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>

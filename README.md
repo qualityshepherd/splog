@@ -13,7 +13,7 @@ _a simple, static, single page blog that features:_
 - _load more-style_ pagination
 - blog rss builder
 - podcast rss builder
-- blog posts starting with `draft_` are skipped (not added to index)
+- blog posts with _future_ dates are not displayed in lists (blog, search, tag, etc...) but ARE displayed by post. This allows drafts (set date to future) and/or setting posts to publish in the future. You'll still need to push a change for it to index (or cron the indexer?)
 
 ## Setup
 > assumes Node and Git...

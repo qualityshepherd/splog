@@ -53,7 +53,7 @@ const genr8Index = {
     return Promise.all(
       fileArray.filter(file => {
         // skip non .md files and files that start with 'draft'
-        return file.indexOf('.md') > -1 && /^_draft_/.test(file) === false
+        return file.indexOf('.md') > -1
       }).map(async file => {
         const markdown = await fs.readFile(`${path}/${file}`, 'utf8')
           .catch(err => console.log(err))

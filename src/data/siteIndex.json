@@ -1,6 +1,16 @@
 [
   {
     "meta": {
+      "title": "This is a Draft!",
+      "date": "9999-03-23",
+      "tags": "tag1, tag2, panic, test",
+      "slug": "_drafts_should_not_be_displayed"
+    },
+    "markdown": "---\ntitle: This is a Draft!\ndate: 9999-03-23\ntags: tag1, tag2, panic, test\n---\n\nFiles that start with future dates should not be displayed unless using the `post` view with the post slug. eg. `http://app.lvh.me:4242/#post?s=_drafts_should_not_be_displayed`. This allows you to review/share drafts and/or future posts without displaying them in any of the list views.\n\n",
+    "html": "<p>Files that start with future dates should not be displayed unless using the <code>post</code> view with the post slug. eg. <code>http://app.lvh.me:4242/#post?s=_drafts_should_not_be_displayed</code>. This allows you to review/share drafts and/or future posts without displaying them in any of the list views.</p>"
+  },
+  {
+    "meta": {
       "title": "Attack the dog then pretend like nothing happened",
       "date": "2021-7-17",
       "tags": "panic",

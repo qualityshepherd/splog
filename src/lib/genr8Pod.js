@@ -1,3 +1,4 @@
+import { removeFuturePosts } from '../utils'
 import { promises as fs } from 'fs'
 import config from '../../package'
 
@@ -20,8 +21,9 @@ const pod = {
   const index = await fs.readFile(config.splog.pathToIndex, { encoding: 'utf8' })
     .catch(err => console.log(err))
   const posts = JSON.parse(index)
+  const publishedPods = removeFuturePosts(posts) // don't display posts with future date
   // filter out posts that are NOT tagged as podcast
-  const podcasts = posts.filter(({ meta }) => { // eslint-disable-line
+  const podcasts = publishedPods.filter(({ meta }) => { // eslint-disable-line
     if (meta.tags) {
       return meta.tags.toLowerCase().indexOf('podcast') > -1
     }
