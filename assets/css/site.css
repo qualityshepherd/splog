@@ -210,7 +210,7 @@ a {
 }
 
 a:hover,
-.post-title:hover, .active {
+.post-title:hover, .active, .archive {
   color: var(--alt3);
 }
 
@@ -257,8 +257,9 @@ h2 {
   text-transform: uppercase;
 }
 
-h3, .names {
+h3, .names, .archive {
   font-size: 250%;
+  line-height: 110%;
   color: var(--header);
   margin-bottom: 15px;
   margin-top: 60px;

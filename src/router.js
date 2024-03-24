@@ -4,6 +4,7 @@ import about from './views/about.js'
 import tags from './views/tags.js'
 import search from './views/search.js'
 import error from './views/error.js'
+import archive from './views/archive.js'
 
 /**
  * To add pages:
@@ -17,7 +18,8 @@ const routes = {
   '#about': about,
   '#tags': tags,
   '#search': search,
-  '#error': error
+  '#error': error,
+  '#archive': archive
 }
 
 /**
