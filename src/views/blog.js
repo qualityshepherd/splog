@@ -11,7 +11,7 @@ const blog = {
 
     let posts = publishedPosts.slice(0, numPosts).map(post => {
       // Split content at <break> tag
-      const [preview, fullContent] = post.html.split('<break>');
+      const [preview, fullContent] = post.html.split('<break>')
 
       return `
         <div class="post">
@@ -19,11 +19,13 @@ const blog = {
           <div class="date">${post.meta.date}</div>
           <div>
             ${preview}
-            ${fullContent ? `
+            ${fullContent
+? `
               <div class="post-break">
                 <a href="#post?s=${post.meta.slug}" class="read-more">Read more...</a>
               </div>
-            ` : ''}
+            `
+: ''}
           </div>
           <span class="tags">${renderTags(post.meta.tags)}</span>
         </div>
