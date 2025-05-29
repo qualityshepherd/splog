@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>SPLOG</title>
+  <link>https://qualityshepherd.github.io/splog</link>
+  <description>A simple, static, single page blog written in vanilla javascript...</description>
+  <language>en-us</language>
+  <itunes:image href="https://qualityshepherd.github.io/splog/assets/images/catface.svg" />
+  <image>
+    <url>https://qualityshepherd.github.io/splog/assets/images/catface.svg</url>
+    <title>SPLOG</title>
+    <link>https://qualityshepherd.github.io/splog</link>
+  </image>
+  <itunes:author>brine</itunes:author>
+  <itunes:explicit>yes</itunes:explicit>
+  <itunes:category text="Leisure" />
+  <itunes:owner>
+    <itunes:email>junk@example.com</itunes:email>
+  </itunes:owner>
+  <atom:link href="https://qualityshepherd.github.io/splog/assets/rss/pod.xml" rel="self" type="application/rss+xml" />
+</channel>
+</rss>

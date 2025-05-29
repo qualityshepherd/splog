@@ -1,0 +1,50 @@
+{
+  "name": "bullsbackoffice",
+  "version": "1.0.0",
+  "author": "brine",
+  "license": "MIT",
+  "main": "index.html",
+  "splog": {
+    "title": "World of Brine",
+    "description": "Chicago Bulls blather by unqualified “executives.” No sources. No access. No boundaries.",
+    "url": "https://bullsbackoffice.com",
+    "pathToIndex": "./src/data/siteIndex.json",
+    "pathToPostsFolder": "./assets/posts",
+    "pathToRssFolder": "./assets/rss",
+    "maxPosts": "12"
+  },
+  "standard": {
+    "globals": [
+      "location"
+    ]
+  },
+  "scripts": {
+    "pretty": "standard --fix",
+    "pack": "webpack",
+    "purge": "curl -X POST \"https://api.cloudflare.com/client/v4/zones/$BRINE_TOKEN/purge_cache\" -H \"Authorization: Bearer $BEARER\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'",
+    "build:index": "./node_modules/.bin/babel-node src/lib/genr8Index.js",
+    "rss:blog": "./node_modules/.bin/babel-node src/lib/genr8Blog.js",
+    "rss:sitemap": "./node_modules/.bin/babel-node src/lib/genr8Sitemap.js",
+    "start": "npm run build:index && npm run rss:blog && npm run rss:sitemap && npm run pack",
+    "server": "http-server -p 4242",
+    "restart": "npm start; npm run server"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "showdown": "^2.1.0",
+    "standard": "^17.1.0",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
+    "@babel/runtime": "^7.27.3",
+    "@babel/core": "^7.11.4",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.0",
+    "sitemap-webpack-plugin": "^1.1.1"
+  }
+}

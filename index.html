@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bulls Back Office | A Chicago Bulls Podcast</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Chicago Bulls blather by unqualified “executives.” No sources. No access. No filters.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:description" content="Chicago Bulls blather by unqualified “executives.” No sources. No access. No filters.">
+  <meta property="og:url" content="https://brine.dev">
+  <meta property="og:image" content="assets/images/bbo_logo.jpg">
+  <meta property="og:image:width" content="3000">
+  <meta property="og:image:height" content="2000">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="assets/rss/sitemap.xml">
+  <link rel="preload" href="/assets/fonts/Oswald-Regular.ttf" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="icon" href="favicon.png">
+  <script src="assets/js/site.js"></script>
+  <link rel="alternate" type="application/rss+xml" href="assets/rss/pod.xml" title="Bulls Back Office Podcast" />
+  <link rel="alternate" type="application/rss+xml" href="assets/rss/blog.xml" title="bullsbackoffice.com" />
+</head>
+<body>
+
+<header>
+  <img src="/assets/images/logo/bbo_logo.jpg" alt="banner" />
+  <nav>
+    <a href="javascript:void(0);" id="hamburger" onclick="toggleHamburger()" aria-label="menu">&#8801;</a>
+    <div id="links">
+      <a href="#blog" class="active">Blog</a>
+      <a href="#about">About</a>
+      <a href="#archive">Archive</a>
+      <form action="#search?q=" onsubmit="location.href=this.action+q.value; return false">
+        <input id="search" name="q" type="text" placeholder="search...">
+      </form>
+  </div>
+  </nav>
+</header>
+
+<h1>Bulls Back Office | A Chicago Bulls Podcast</h1>
+
+<div class="container">
+  <!-- content will be inserted here -->
+  <main></main>
+</div>
+
+<div id="footer">
+</div>
+
+<!-- import webpack  -->
+<script src="dist/main.js"></script>
+<script async data-id="101437990" src="//static.getclicky.com/js"></script>
+</body>
+</html>

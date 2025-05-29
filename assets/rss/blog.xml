@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>World of Brine</title>
+  <link>https://bullsbackoffice.com</link>
+  <description>Chicago Bulls blather by unqualified “executives.” No sources. No access. No boundaries.</description>
+  <language>en-us</language>
+  <lastBuildDate>Thu, 29 May 2025 21:08:06 GMT</lastBuildDate>
+  <atom:link href="https://bullsbackoffice.com/assets/rss/blog.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <pubDate>Thu, 29 May 2025 06:00:00 GMT</pubDate>
+    <title>Welcome to Bulls Back Office!</title>
+    <link>https://bullsbackoffice.com/#post?s=welcome</link>
+    <guid>https://bullsbackoffice.com/#post?s=welcome</guid>
+    <description><![CDATA[<p><img src="assets/images/logo/bulls_logo.png" alt="thumb" />We ask our fans for patience because we're in the first year of this transition…</p>]]></description>
+  </item>
+</channel>
+</rss>
