@@ -12,7 +12,7 @@ As we enter our inaugural season of speculative leadership, we at **Bulls Back O
 
 While we lack access, credentials, and relevant experience, we nonetheless endeavor to deliver the same _coherent planning_ you've come to expect from our Front Office.
 
-We remain committed to our vision: **track suit executives, one couch away from a champion**.
+We remain committed to our vision: **tracksuit executives, one couch away from a champion**.
 
 We're the tail that wags the dog; the caboose running the train. We ask our fans for patience during this first year of transition...
 
