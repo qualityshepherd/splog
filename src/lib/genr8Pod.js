@@ -7,10 +7,10 @@ const pod = {
   title: config.splog.title,
   link: config.splog.url,
   description: config.splog.description,
-  image: `${config.splog.url}/assets/images/catface.svg`,
+  image: `${config.splog.url}/assets/images/bbo_square_2000.png`,
   author: 'brine',
   explicit: 'yes',
-  email: 'junk@example.com',
+  email: 'intern@bullsbackoffice.com',
   podRss: `${config.splog.url}/assets/rss/pod.xml`
 }; // required ;
 

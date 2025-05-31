@@ -226,6 +226,7 @@ nav #links {
 .social img {
   opacity: .33;
   width: 50px;
+  margin: 15px 0 15px 0;
   padding: 10px 10px 0 0;
   display: inline-block;
   text-decoration: none;

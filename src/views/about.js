@@ -12,6 +12,7 @@ const about = {
           <a href="https://www.youtube.com/@bullsbackoffice" title="youtube"><img src="assets/images/social/youtube.png" alt="youtube"></a>
           <a href="/assets/rss/blog.xml"><img src="assets/images/social/rss.png" title="blog rss" alt="blog rss"></a>
         </div>
+        <div class="center"><img src="assets/images/bbo_square_300.png"></div>
       </div>
     `
   }
