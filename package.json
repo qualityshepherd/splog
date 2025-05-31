@@ -37,7 +37,6 @@
     "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
     "@babel/runtime": "^7.27.3",
     "@babel/core": "^7.11.4",
     "@babel/node": "^7.10.5",
