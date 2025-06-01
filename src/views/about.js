@@ -4,7 +4,7 @@ const about = {
       <h2>Bulls Back Office</h2>
 
       <div class="center">
-      Bulls Back Office: Tracksuit executives one couch away from a champion. No access. No sources. No filters.
+      Tracksuit executives one couch away from a champion. No access. No sources. No filters.
         <div class="social">
           <a href=mailto:&#105;&#110;&#116;&#101;&#114;&#110;&#64;&#98;&#117;&#108;&#108;&#115;&#98;&#97;&#99;&#107;&#111;&#102;&#102;&#105;&#99;&#101;&#46;&#99;&#111;&#109;
  title="email"><img src="assets/images/social/email.png" alt="email"></a>
