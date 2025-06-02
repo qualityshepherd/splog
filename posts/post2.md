@@ -1,0 +1,11 @@
+---
+title: Need to check on human, have not seen in an hour might be dead
+date: 2021-7-15
+tags: test, panic
+---
+
+![thumb](assets/images/catface.svg)**Need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me**
+
+Cat ipsum dolor sit amet, _why dog in house_? i'm the sole ruler of this home and its inhabitants smelly, stupid ~~dogs~~ other cats, inferior furballs time for night-hunt, human freakout. Scratch at fleas, meow until belly rubs, hide behind curtain when vacuum cleaner is on scratch strangers and poo on owners food adventure always so **have secret plans for morning beauty routine of licking self** yet humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean for hopped up on catnip attack the child. Claw at curtains stretch and yawn nibble on tuna ignore human bite human hand nyan nyan goes the cat, scraaaaape scraaaape goes the walls when the cat murders them with its claws so pet me pet me pet me pet me, bite, scratch, why are you petting me and spit up on light gray carpet instead of adjacent linoleum. Poop on grasses x. Lick the plastic bag meow for food, then when human fills food dish, take a few bites of food and continue meowing eat my own ears.
+
+Leave hair everywhere do doodoo in the litter-box, clickityclack on the piano, be frumpygrumpy i cry and cry and cry unless you pet me, and then maybe i cry just for fun. Get away from me stupid dog meow to be let in steal the warm chair right after you get up stare at imaginary bug but lick yarn hanging out of own butt for **step on your keyboard while you're gaming** and then turn in a circle poop in litter box, scratch the walls. Hiss and stare at nothing then run suddenly away chew the plant reward the chosen human with a slow blink. Purr when give birth. I show my fluffy belly but it's a trap! if you pet it i will tear up your hand if it fits i sits yet kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Stare at the wall, play with food and get confused by dust trip owner up in kitchen i want food. Don't nosh on the birds. Go into a room to decide you didn't want to be in there anyway steal raw zucchini off kitchen counter kitty time.
