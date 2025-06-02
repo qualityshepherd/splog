@@ -7,7 +7,9 @@
   "license": "MIT",
   "main": "app.js",
   "standard": {
-    "env": ["browser"]
+    "env": [
+      "browser"
+    ]
   },
   "scripts": {
     "build:index": "node ./lib/genr8Index.js",
