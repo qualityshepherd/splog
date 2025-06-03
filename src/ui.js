@@ -28,9 +28,9 @@ const singlePostTemplate = post => `
 const notFoundTemplate = () => '<p>Post not found.</p>'
 
 const aboutPageTemplate = () => `
-  <h2>SPLOG2</h2>Add commentMore actions
+  <h2>SPLOG2</h2>
   <div class="center">
-  A simple, single page, blog written in vanilla js that supports markdown, rss, podcasts and deploys to github pages (github.io).
+    A simple, single page, blog written in vanilla js that supports markdown, rss, podcasts and deploys to github pages (github.io).
   </div>
 `
 
