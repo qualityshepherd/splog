@@ -1,13 +1,13 @@
 import config from './config.js'
 import { state } from './state.js'
-import { elements, renderAboutPage, renderFilteredPosts, renderPosts, renderSinglePost } from './ui.js'
+import { elements, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost } from './ui.js'
 
-// Route definitions
 const ROUTES = {
   HOME: '',
   POST: '#post',
   ABOUT: '#about',
-  TAG: '#tag'
+  TAG: '#tag',
+  ARCHIVE: '#archive'
 }
 
 const getRouteParams = () => {
@@ -42,6 +42,10 @@ const routeHandlers = {
       const filtered = filterPostsByTag(state.posts, tag)
       renderPosts(filtered)
     }
+  },
+
+  [ROUTES.ARCHIVE]: () => {
+    renderArchive(state.posts)
   },
 
   default: () => {
