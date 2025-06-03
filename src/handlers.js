@@ -1,48 +1,81 @@
 import config from './config.js'
 import { state } from './state.js'
-import { elements, renderFilteredPosts, renderPosts, renderSinglePost } from './ui.js'
+import { elements, renderAboutPage, renderFilteredPosts, renderPosts, renderSinglePost } from './ui.js'
 
-export function handleRouting () {
+// Route definitions
+const ROUTES = {
+  HOME: '',
+  POST: '#post',
+  ABOUT: '#about',
+  TAG: '#tag'
+}
+
+const getRouteParams = () => {
   const [route, query] = location.hash.split('?')
   const params = new URLSearchParams(query)
+  return { route, params }
+}
 
-  if (route === '#post') {
+const normalize = str => String(str || '').toLowerCase()
+
+const filterPostsByTag = (posts, tag) =>
+  posts.filter(post =>
+    post.meta.tags?.some(t => normalize(t) === normalize(tag))
+  )
+
+const getVisiblePosts = (posts, limit) => posts.slice(0, limit)
+
+// Core router logic (pure routing -> effect)
+const routeHandlers = {
+  [ROUTES.POST]: ({ params }) => {
     const slug = params.get('s')
-    if (slug) return renderSinglePost(slug)
-  }
+    if (slug) renderSinglePost(slug)
+  },
 
-  if (route === '#tag') {
+  [ROUTES.ABOUT]: () => {
+    renderAboutPage()
+  },
+
+  [ROUTES.TAG]: ({ params }) => {
     const tag = params.get('t')
     if (tag) {
-      const filtered = state.posts.filter(post =>
-        post.meta.tags?.some(t => t.toLowerCase() === tag.toLowerCase())
-      )
-      return renderPosts(filtered)
+      const filtered = filterPostsByTag(state.posts, tag)
+      renderPosts(filtered)
     }
+  },
+
+  default: () => {
+    const postsToShow = getVisiblePosts(state.posts, state.displayedPosts)
+    renderPosts(postsToShow)
   }
-  // default: home view
-  renderPosts(state.posts.slice(0, state.displayedPosts))
+}
+
+export function handleRouting () {
+  const { route, params } = getRouteParams();
+  (routeHandlers[route] || routeHandlers.default)({ params })
 }
 
 export function handleSearch (e) {
-  state.searchTerm = e.target.value.toLowerCase()
+  const normalizeInput = input => input.toLowerCase()
+  state.searchTerm = normalizeInput(e.target.value)
   renderFilteredPosts()
 }
 
 export function handleLoadMore () {
-  state.displayedPosts += config.maxPosts
-  const visiblePosts = state.posts.slice(0, state.displayedPosts)
-  renderPosts(visiblePosts)
-  if (state.displayedPosts >= state.posts.length) {
-    elements.loadMore?.remove() // or hide instead of removing
-  }
+  const increaseLimit = (limit, step) => limit + step
+
+  state.displayedPosts = increaseLimit(state.displayedPosts, config.maxPosts)
+
+  const postsToShow = getVisiblePosts(state.posts, state.displayedPosts)
+  renderPosts(postsToShow)
+
+  const allPostsShown = state.displayedPosts >= state.posts.length
+  if (allPostsShown) elements.loadMore?.remove()
 }
 
-/* eslint-disable no-unused-vars */
-export function toggleMenu (e) {
-  if (elements.menuLinks.style.display === 'block') { // is visible
-    elements.menuLinks.style.display = 'none'
-  } else {
-    elements.menuLinks.style.display = 'block'
-  }
+export function toggleMenu () {
+  const toggleDisplay = el =>
+    (el.style.display = el.style.display === 'block' ? 'none' : 'block')
+
+  toggleDisplay(elements.menuLinks)
 }
