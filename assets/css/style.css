@@ -216,7 +216,6 @@ footer {
 }
 
 #loadMore {
-  display: block;
   margin: 15px auto;
   font-size: 90%;
   color: var(--bg-darker);
