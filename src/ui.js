@@ -28,16 +28,9 @@ const singlePostTemplate = post => `
 const notFoundTemplate = () => '<p>Post not found.</p>'
 
 const aboutPageTemplate = () => `
-  <h2>Bulls Back Office</h2>
+  <h2>SPLOG2</h2>Add commentMore actions
   <div class="center">
-    Tracksuit executives one couch away from a champion. No access. No sources. No filters.
-    <div class="social">
-      <a href="mailto:&#105;&#110;&#116;&#101;&#114;&#110;&#64;&#98;&#117;&#108;&#108;&#115;&#98;&#97;&#99;&#107;&#111;&#102;&#102;&#105;&#99;&#101;&#46;&#99;&#111;&#109;" title="email"><img src="assets/images/social/email.png" alt="email"></a>
-      <a href="https://podcasts.apple.com/au/podcast/play-worlds-podcast/id1722152993" title="Bulls Back Office Podcast"><img src="assets/images/social/podcast.png" alt="Podcast"></a>
-      <a href="https://www.youtube.com/@bullsbackoffice" title="youtube"><img src="assets/images/social/youtube.png" alt="YouTube"></a>
-      <a href="/assets/rss/blog.xml"><img src="assets/images/social/rss.png" title="blog rss" alt="RSS"></a>
-    </div>
-    <div class="center"><img src="assets/images/bbo_square_300.png"></div>
+  A simple, single page, blog written in vanilla js that supports markdown, rss, podcasts and deploys to github pages (github.io).
   </div>
 `
 
