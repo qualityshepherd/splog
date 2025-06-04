@@ -167,10 +167,6 @@ footer {
   text-align: center;
 }
 
-.hidden {
-  display: none;
-}
-
 /* any child divs of .song */
 .song > div {
   text-align: left;
@@ -215,8 +211,8 @@ footer {
   text-decoration: none;
 }
 
-#loadMore {
-  display: block;
+#load-more {
+  display: none;
   margin: 15px auto;
   font-size: 90%;
   color: var(--bg-darker);
@@ -224,6 +220,10 @@ footer {
   padding: 15px;
   border: none;
   border-radius: 15px;
+}
+
+#load-more.show {
+  display: block;
 }
 
 .social img {

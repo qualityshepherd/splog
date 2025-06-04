@@ -71,7 +71,7 @@ export const elements = {
   menu: document.querySelector('#menu'),
   menuLinks: document.querySelector('nav #links'),
   searchInput: document.querySelector('#search'),
-  loadMore: document.querySelector('#loadMore')
+  loadMore: document.querySelector('#load-more')
 }
 
 export function renderPosts (posts) {
@@ -101,5 +101,5 @@ export function renderFilteredPosts () {
 
 function toggleLoadMoreButton (shouldShow) {
   if (!elements.loadMore) return
-  elements.loadMore.classList.toggle('hidden', !shouldShow)
+  elements.loadMore.classList.toggle('show', shouldShow)
 }

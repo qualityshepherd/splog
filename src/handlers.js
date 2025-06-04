@@ -66,12 +66,9 @@ export function handleSearch (e) {
 }
 
 export function handleLoadMore () {
-  const increaseLimit = (limit, step) => limit + step
+  state.displayedPosts += config.maxPosts
 
-  state.displayedPosts = increaseLimit(state.displayedPosts, config.maxPosts)
-
-  const postsToShow = getVisiblePosts(state.posts, state.displayedPosts)
-  renderPosts(postsToShow)
+  renderPosts(state.posts) // Let renderPosts slice internally
 
   const allPostsShown = state.displayedPosts >= state.posts.length
   if (allPostsShown) elements.loadMore?.remove()
