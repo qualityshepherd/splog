@@ -13,5 +13,5 @@ elements.loadMore?.addEventListener('click', handleLoadMore)
 ;(async () => {
   const index = await readSiteIndex(config.pathToIndex)
   state.posts = index
-  renderPosts(state.posts.slice(0, state.displayedPosts))
+  renderPosts(state.posts)
 })()
