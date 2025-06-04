@@ -99,7 +99,7 @@ export function renderFilteredPosts () {
   toggleLoadMoreButton(filtered.length > state.displayedPosts)
 }
 
-function toggleLoadMoreButton (shouldShow) {
+export function toggleLoadMoreButton (shouldShow) {
   if (!elements.loadMore) return
   elements.loadMore.classList.toggle('show', shouldShow)
 }

@@ -1,6 +1,6 @@
 import config from './config.js'
 import { state } from './state.js'
-import { elements, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost } from './ui.js'
+import { elements, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost, toggleLoadMoreButton } from './ui.js'
 
 const ROUTES = {
   HOME: '',
@@ -34,6 +34,7 @@ const routeHandlers = {
 
   [ROUTES.ABOUT]: () => {
     renderAboutPage()
+    toggleLoadMoreButton(false)
   },
 
   [ROUTES.TAG]: ({ params }) => {
@@ -46,6 +47,7 @@ const routeHandlers = {
 
   [ROUTES.ARCHIVE]: () => {
     renderArchive(state.posts)
+    toggleLoadMoreButton(false)
   },
 
   default: () => {
