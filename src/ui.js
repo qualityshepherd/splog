@@ -1,6 +1,6 @@
 import { state } from './state.js'
 
-const getLimitedPosts = (posts, limit) => posts.slice(0, limit)
+export const getLimitedPosts = (posts, limit) => posts.slice(0, limit)
 
 const getFilteredPosts = (posts, searchTerm) =>
   posts.filter(post => postMatchesSearch(post, searchTerm))

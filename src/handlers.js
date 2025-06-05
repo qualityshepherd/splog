@@ -1,6 +1,6 @@
 import config from './config.js'
 import { state } from './state.js'
-import { elements, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost, toggleLoadMoreButton } from './ui.js'
+import { elements, getLimitedPosts, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost, toggleLoadMoreButton } from './ui.js'
 
 const ROUTES = {
   HOME: '',
@@ -22,8 +22,6 @@ const filterPostsByTag = (posts, tag) =>
   posts.filter(post =>
     post.meta.tags?.some(t => normalize(t) === normalize(tag))
   )
-
-const getVisiblePosts = (posts, limit) => posts.slice(0, limit)
 
 // Core router logic (pure routing -> effect)
 const routeHandlers = {
@@ -51,7 +49,7 @@ const routeHandlers = {
   },
 
   default: () => {
-    const postsToShow = getVisiblePosts(state.posts, state.displayedPosts)
+    const postsToShow = getLimitedPosts(state.posts, state.displayedPosts)
     renderPosts(postsToShow)
   }
 }
