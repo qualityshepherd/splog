@@ -17,6 +17,7 @@
     "rss:pod": "node ./lib/genr8Pod.js",
     "rss:sitemap": "node ./lib/genr8Sitemap.js",
     "start": "npm run build:index && npm run rss:blog && npm run rss:pod && npm run rss:sitemap",
+    "pretest": "npm run server & sleep 1",
     "test": "tape tests/*test.js",
     "server": "npm start && http-server -p 4242",
     "pretty": "standard --fix"

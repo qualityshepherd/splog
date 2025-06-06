@@ -1,4 +1,3 @@
-import { readFile } from 'fs/promises'
 import config from './config.js'
 
 export const state = {
@@ -9,8 +8,10 @@ export const state = {
 
 export async function readSiteIndex (pathToIndex) {
   try {
-    const data = await readFile(pathToIndex, 'utf-8')
-    const index = JSON.parse(data)
+    const res = await fetch(pathToIndex)
+    validateResponse(res)
+
+    const index = await res.json()
 
     return sortByDate(
       removeFuturePosts(index)
@@ -46,4 +47,10 @@ export function sortBy (prop) {
 // fix Safari date parsing (replaces dashes with slashes).
 function parseDate (str) {
   return new Date(str.replace(/-/g, '/'))
+}
+
+function validateResponse (res) {
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} - ${res.statusText}`)
+  }
 }

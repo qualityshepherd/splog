@@ -1,7 +1,8 @@
 import test from 'tape'
 import { readSiteIndex } from '../src/state.js'
 
-const pathToIndex = './tests/fake.index.json'
+// readSiteIndex uses fetch, which requires a browser and legit url
+const pathToIndex = 'http://localhost:4242/tests/fake.index.json'
 
 test('readSiteIndex should return parsed JSON', async t => {
   const data = await readSiteIndex(pathToIndex)
