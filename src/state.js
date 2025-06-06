@@ -1,3 +1,4 @@
+import { readFile } from 'fs/promises'
 import config from './config.js'
 
 export const state = {
@@ -6,12 +7,10 @@ export const state = {
   searchTerm: ''
 }
 
-export async function readSiteIndex(pathToIndex) {
+export async function readSiteIndex (pathToIndex) {
   try {
-    const res = await fetch(pathToIndex)
-    validateResponse(res)
-
-    const index = await res.json()
+    const data = await readFile(pathToIndex, 'utf-8')
+    const index = JSON.parse(data)
 
     return sortByDate(
       removeFuturePosts(index)
@@ -22,12 +21,12 @@ export async function readSiteIndex(pathToIndex) {
   }
 }
 
-export function removeFuturePosts(posts) {
+export function removeFuturePosts (posts) {
   const now = new Date()
   return posts.filter(post => parseDate(post.meta.date) <= now)
 }
 
-export function sortByDate(posts, desc = true) {
+export function sortByDate (posts, desc = true) {
   return [...posts].sort((a, b) => {
     const dateA = parseDate(a.meta.date)
     const dateB = parseDate(b.meta.date)
@@ -35,20 +34,16 @@ export function sortByDate(posts, desc = true) {
   })
 }
 
-export function sortBy(prop) {
+export function sortBy (prop) {
   return (a, b) =>
-    a[prop] > b[prop] ? 1
-    : a[prop] < b[prop] ? -1
-    : 0
+    a[prop] > b[prop]
+      ? 1
+      : a[prop] < b[prop]
+        ? -1
+        : 0
 }
 
 // fix Safari date parsing (replaces dashes with slashes).
-function parseDate(str) {
+function parseDate (str) {
   return new Date(str.replace(/-/g, '/'))
-}
-
-function validateResponse(res) {
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status} - ${res.statusText}`)
-  }
 }

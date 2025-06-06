@@ -1,0 +1,28 @@
+[
+  {
+    "meta": {
+      "title": "Draft 1",
+      "date": "9999-01-01",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "slug": "drafts_should_not_be_displayed"
+    },
+    "markdown": "Files that start with future dates should not be displayed unless using the `post` view with the post slug. eg. `http://app.lvh.me:4242/#post?s=_drafts_should_not_be_displayed`. This allows you to review/share drafts and/or future posts without displaying them in any of the list views.",
+    "html": "<p>Files that start with future dates should not be displayed unless using the <code>post</code> view with the post slug. eg. <code>http://app.lvh.me:4242/#post?s=_drafts_should_not_be_displayed</code>. This allows you to review/share drafts and/or future posts without displaying them in any of the list views.</p>\n"
+  },
+  {
+    "meta": {
+      "title": "Test 1",
+      "date": "2025-06-06",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "slug": "test_post_1"
+    },
+    "markdown": "This is a test... it is only a test... **DO NOT PANIC**",
+    "html": "This is a test... it is only a test... <b>DO NOT PANIC</b>\n"
+  }
+]

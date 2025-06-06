@@ -17,12 +17,14 @@
     "rss:pod": "node ./lib/genr8Pod.js",
     "rss:sitemap": "node ./lib/genr8Sitemap.js",
     "start": "npm run build:index && npm run rss:blog && npm run rss:pod && npm run rss:sitemap",
+    "test": "tape tests/*test.js",
     "server": "npm start && http-server -p 4242",
     "pretty": "standard --fix"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "tape": "^5.9.0"
   },
   "dependencies": {
     "marked": "^15.0.12"
