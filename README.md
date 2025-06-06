@@ -2,7 +2,7 @@
 
 A simple, single-page blog written in vanilla JS that supports Markdown, RSS, podcasts, and deploys to GitHub Pages.
 
-[DEMO](https://qualityshepherd.github.io/splog/)
+[DEMO](https://splog.brine.dev)
 
 ## Features
 - Static site (no server needed)
