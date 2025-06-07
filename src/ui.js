@@ -1,12 +1,6 @@
 import { state } from './state.js'
 import { elements } from './dom.js'
-import {
-  postsTemplate,
-  singlePostTemplate,
-  notFoundTemplate,
-  aboutPageTemplate,
-  archiveTemplate
-} from './templates.js'
+import { postsTemplate, singlePostTemplate, notFoundTemplate, aboutPageTemplate, archiveTemplate } from './templates.js'
 
 export const getLimitedPosts = (posts, limit) => posts.slice(0, limit)
 

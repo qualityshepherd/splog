@@ -16,8 +16,12 @@ A simple, single-page blog written in vanilla JS that supports Markdown, RSS, po
 ## Install
 1. `git clone git@github.com:qualityshepherd/splog.git`
 1. `cd splog`
-1. `npm install`       # install dependencies
-1. `npm run server`    # (optional) local dev server
+1. `npm ci`           # install dependencies
+1. `npm run server`   # (optional) local dev server
+
+## Testing
+1. `npm test` to run all tests
+1. tests are part of deploy to github pages workgroup
 
 ## Setup
 - edit `config.js` to customize your blog settings
@@ -27,7 +31,8 @@ A simple, single-page blog written in vanilla JS that supports Markdown, RSS, po
 - (optional) `npm run server` to preview your blog locally
 
 ## Adding Pages
-1. in `handlers.js`, add a new route to `ROUTES`
+1. add a new route to `ROUTES` in `handlers.js`
+1. add template to `templates.js`
 1. add a function to render your page content
 1. modify `handleRouting()` to handle your new route:
 1. link to the page in `index.html`
