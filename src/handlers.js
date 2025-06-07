@@ -1,6 +1,7 @@
 import config from './config.js'
+import { elements } from './dom.js'
 import { state } from './state.js'
-import { elements, getLimitedPosts, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost, toggleLoadMoreButton } from './ui.js'
+import { getLimitedPosts, renderAboutPage, renderArchive, renderFilteredPosts, renderPosts, renderSinglePost, toggleLoadMoreButton } from './ui.js'
 
 const ROUTES = {
   HOME: '',

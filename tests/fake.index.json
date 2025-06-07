@@ -24,5 +24,18 @@
     },
     "markdown": "This is a test... it is only a test... **DO NOT PANIC**",
     "html": "This is a test... it is only a test... <b>DO NOT PANIC</b>\n"
+  },
+  {
+    "meta": {
+      "title": "Test 2",
+      "date": "2025-05-06",
+      "tags": [
+        "tag3",
+        "tag4"
+      ],
+      "slug": "test_post_1"
+    },
+    "markdown": "This is also a test... it is only a test... **DO NOT PANIC**",
+    "html": "This is also a test... it is only a test... <b>DO NOT PANIC</b>\n"
   }
 ]
