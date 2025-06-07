@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer'
 
 export function pptr(testFn) {
   return async t => {
-    const browser = await puppeteer.launch({ headless: true, slowMo: 0 })
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true, slowMo: 0 })
     const page = await browser.newPage()
 
     // Query the actual window size using window.outerWidth/outerHeight
