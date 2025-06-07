@@ -26,10 +26,10 @@ export const postMatchesSearch = (post, searchTerm) => {
   )
 }
 
-export function renderPosts (posts) {
-  const limited = getLimitedPosts(posts, state.displayedPosts)
+export function renderPosts (postsToRender, limit) {
+  const limited = getLimitedPosts(postsToRender, limit)
   elements.main.innerHTML = limited.map(postsTemplate).join('')
-  toggleLoadMoreButton(state.displayedPosts < posts.length)
+  toggleLoadMoreButton(limit < postsToRender.length)
 }
 
 export function renderSinglePost (slug) {
@@ -49,11 +49,14 @@ export function renderFilteredPosts () {
   const filtered = state.posts.filter(post =>
     postMatchesSearch(post, state.searchTerm)
   )
-  renderPosts(filtered)
-  toggleLoadMoreButton(filtered.length > state.displayedPosts)
+  renderPosts(filtered, filtered.length) // no pagination
 }
 
-export function toggleLoadMoreButton (shouldShow) {
+export function renderNotFoundPage () {
+  elements.main.innerHTML = notFoundTemplate()
+}
+
+export function toggleLoadMoreButton (shouldShow = false) {
   if (!elements.loadMore) return
   elements.loadMore.classList.toggle('show', shouldShow)
 }

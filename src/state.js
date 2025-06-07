@@ -2,7 +2,7 @@ import config from './config.js'
 
 export const state = {
   posts: [],
-  displayedPosts: config.maxPosts,
+  displayedPosts: config.maxPosts, // Changed from postLimit to displayedPosts
   searchTerm: ''
 }
 

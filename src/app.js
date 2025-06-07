@@ -14,5 +14,5 @@ window.addEventListener('DOMContentLoaded', handleRouting)
 ;(async () => {
   const index = await readSiteIndex(config.pathToIndex)
   state.posts = index
-  renderPosts(state.posts)
+  renderPosts(state.posts, state.displayedPosts) // Changed from postLimit to displayedPosts
 })()
