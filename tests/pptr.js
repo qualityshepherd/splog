@@ -1,12 +1,12 @@
 import puppeteer from 'puppeteer'
 
-export function pptr(testFn) {
+export function pptr (testFn) {
   return async t => {
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], headless: true, slowMo: 0 })
     const page = await browser.newPage()
 
     // Query the actual window size using window.outerWidth/outerHeight
-    const windowSize = await page.evaluate(() => ({ width: window.outerWidth, height: window.outerHeight}))
+    const windowSize = await page.evaluate(() => ({ width: window.outerWidth, height: window.outerHeight }))
     await page.setViewport({ width: windowSize.width, height: windowSize.height })
 
     // Enhance `t` with custom helpers

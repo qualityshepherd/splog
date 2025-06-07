@@ -14,7 +14,6 @@ test('should load more posts', pptr(async t => {
   const initialPostCount = await t.count('.post-title')
   await t.click('#load-more')
 
-  const after = await t.count('main article')
   t.ok(await t.count('.post-title') > initialPostCount)
 }))
 
