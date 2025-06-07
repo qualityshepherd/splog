@@ -18,7 +18,7 @@ test('postMatchesSearch should return posts matching a search term', async t => 
   t.ok(tagsSearch[0].meta.tags.includes('news'))
 })
 
-test('renderTags should return anchor tags for each tag', async t => {
+test('renderTags should return formatted tags', async t => {
   const tags = ['poopy', 'taters']
   const html = renderTags(tags)
 
