@@ -31,8 +31,8 @@ A simple, single-page blog written in vanilla JS that supports Markdown, RSS, po
 - (optional) `npm run server` to preview your blog locally
 
 ## Adding Pages
-1. add a new route to `ROUTES` in `handlers.js`
 1. add template to `templates.js`
+1. add a new route to `ROUTES` in `handlers.js`
 1. add a function to render your page content
 1. modify `handleRouting()` to handle your new route:
 1. link to the page in `index.html`
