@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --production
       - name: Run Tests
         run: npm test
 
