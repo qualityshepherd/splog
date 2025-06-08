@@ -17,6 +17,7 @@ export function pptr (testFn) {
 
     // Enhance `t` with custom helpers
     t.page = page
+    t.browser = browser
     t.goto = url => page.goto(url)
     t.getText = sel => page.$eval(sel, el => el.textContent)
     t.exists = sel => page.$(sel).then(el => !!el)
@@ -28,6 +29,7 @@ export function pptr (testFn) {
     t.waitFor = sel => page.waitForSelector(sel)
     t.press = key => page.keyboard.press(key)
     t.hasClass = (sel, className) => page.$eval(sel, (el, cls) => el.classList.contains(cls), className)
+    t.clickNth = (selector, index) => t.page.$$eval(selector, (elements, i) => { elements[i]?.click() }, index)
 
     try {
       await testFn(t)
