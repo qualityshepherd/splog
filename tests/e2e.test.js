@@ -39,6 +39,7 @@ test('should display archive posts', pptr(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.click('a[href="#archive"]')
+  await t.waitFor('.archive')
 
   t.ok(await t.count('.archive') > 0)
 }))
