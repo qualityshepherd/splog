@@ -22,7 +22,7 @@ A simple, single-page blog written in vanilla JS that supports Markdown, RSS, po
 1. `npm run server`   # (optional) local dev server
 
 ## Testing
-Tests use [Tape](https://www.npmjs.com/package/tape) as a test runner. E2E tests uses my own _clever?_ bastardization of Tape and [Puppeteer](https://www.npmjs.com/package/puppeteer) (tests/pptr.js). It works quite well, actually...
+Tests use [Tape](https://www.npmjs.com/package/tape) as a test runner. E2E tests uses my own _clever?_ bastardization of Tape and [Puppeteer](https://www.npmjs.com/package/puppeteer) ([tests/pptr.js](https://github.com/qualityshepherd/splog/blob/main/tests/pptr.js)). It works quite well, actually...
 
 - `npm test` to run all tests
 - tests are part of deploy to github pages workgroup

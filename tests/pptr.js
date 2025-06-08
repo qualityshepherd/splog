@@ -30,6 +30,7 @@ export function pptr (testFn) {
     t.press = key => page.keyboard.press(key)
     t.hasClass = (sel, className) => page.$eval(sel, (el, cls) => el.classList.contains(cls), className)
     t.clickNth = (selector, index) => t.page.$$eval(selector, (elements, i) => { elements[i]?.click() }, index)
+    t.eval = fn => page.evaluate(fn) // good for js injection
 
     try {
       await testFn(t)
