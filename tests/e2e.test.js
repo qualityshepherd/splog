@@ -1,15 +1,15 @@
 import test from 'tape'
-import { pptr } from './pptr.js'
+import { tappr } from './tappr.js'
 
 const home = `${process.env.TEST_ENV}` || 'https://splog.brine.dev'
 
-test('should display at least one post', pptr(async t => {
+test('should display at least one post', tappr(async t => {
   await t.goto(home)
 
   t.ok(await t.count('.post-title') > 0)
 }))
 
-test('should load more posts', pptr(async t => {
+test('should load more posts', tappr(async t => {
   await t.goto(home)
   const initialPostCount = await t.count('.post-title')
   await t.click('#load-more')
@@ -18,7 +18,7 @@ test('should load more posts', pptr(async t => {
   t.ok(await t.count('.post-title') > initialPostCount)
 }))
 
-test('should use menu to navigate to about page', pptr(async t => {
+test('should use menu to navigate to about page', tappr(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.click('a[href="#about"]')
@@ -27,7 +27,7 @@ test('should use menu to navigate to about page', pptr(async t => {
   t.ok(await t.exists('h2'))
 }))
 
-test('should search for post', pptr(async t => {
+test('should search for post', tappr(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.type('#search', 'human')
@@ -35,7 +35,7 @@ test('should search for post', pptr(async t => {
   t.ok(await t.count('.post-title') > 0)
 }))
 
-test('should display archive posts', pptr(async t => {
+test('should display archive posts', tappr(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.click('a[href="#archive"]')
@@ -44,7 +44,7 @@ test('should display archive posts', pptr(async t => {
   t.ok(await t.count('.archive') > 0)
 }))
 
-test('should filter posts by tag', pptr(async t => {
+test('should filter posts by tag', tappr(async t => {
   await t.goto(home)
   await t.click('.tag')
 
