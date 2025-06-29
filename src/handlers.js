@@ -79,7 +79,7 @@ const routeHandlers = {
 
 export function handleRouting () {
   const { route, params } = getRouteParams()
-  state.searchTerm = '' // Clear search term on route change
+  state.searchTerm = ''
 
   // Hide load-more button by default for all routes
   toggleLoadMoreButton()
