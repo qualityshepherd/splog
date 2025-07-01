@@ -1,8 +1,23 @@
 import config from './config.js'
 import { elements } from './dom.js'
-import { state } from './state.js'
-import { renderAboutPage, renderArchive, renderFilteredPosts, renderNotFoundPage, renderPosts, renderSinglePost, toggleLoadMoreButton } from './ui.js'
+import {
+  getPosts,
+  getDisplayedPosts,
+  setDisplayedPosts,
+  setSearchTerm,
+  incrementDisplayedPosts
+} from './state.js'
+import {
+  renderAboutPage,
+  renderArchive,
+  renderFilteredPosts,
+  renderNotFoundPage,
+  renderPosts,
+  renderSinglePost,
+  toggleLoadMoreButton
+} from './ui.js'
 
+// to add routes, add the route here and the handler to routeHandlers
 const ROUTES = {
   HOME: '',
   POST: '#post',
@@ -27,12 +42,12 @@ const filterPostsByTag = (posts, tag) =>
 
 const routeHandlers = {
   [ROUTES.HOME]: ({ params }) => {
-    state.displayedPosts = config.maxPosts
-    renderPosts(state.posts, state.displayedPosts) // paginated
-    // Only show load-more if there are more posts to load
-    if (state.displayedPosts < state.posts.length) {
-      toggleLoadMoreButton(true)
-    }
+    setDisplayedPosts(config.maxPosts)
+    const posts = getPosts()
+    const displayedCount = getDisplayedPosts()
+
+    renderPosts(posts, displayedCount)
+    toggleLoadMoreButton(displayedCount < posts.length)
   },
 
   [ROUTES.POST]: ({ params }) => {
@@ -47,28 +62,31 @@ const routeHandlers = {
   [ROUTES.TAG]: ({ params }) => {
     const tag = params.get('t')
     if (tag) {
-      const filtered = filterPostsByTag(state.posts, tag)
+      const posts = getPosts()
+      const filtered = filterPostsByTag(posts, tag)
       renderPosts(filtered, filtered.length)
     }
   },
 
   [ROUTES.ARCHIVE]: () => {
-    renderArchive(state.posts)
+    renderArchive(getPosts())
   },
 
   [ROUTES.SEARCH]: ({ params }) => {
     const query = params.get('q')
     if (query) {
-      state.searchTerm = query.toLowerCase()
-      // Update the search input to reflect the URL query
+      setSearchTerm(query.toLowerCase())
+
+      // update the search input to reflect the URL query
       if (elements.searchInput) {
         elements.searchInput.value = query
       }
       renderFilteredPosts()
     } else {
-      // No query parameter, show all posts
-      state.searchTerm = ''
-      renderPosts(state.posts, state.posts.length)
+      // no query parameter, show all posts
+      setSearchTerm('')
+      const posts = getPosts()
+      renderPosts(posts, posts.length)
     }
   },
 
@@ -79,21 +97,21 @@ const routeHandlers = {
 
 export function handleRouting () {
   const { route, params } = getRouteParams()
-  state.searchTerm = ''
+  setSearchTerm('')
 
-  // Hide load-more button by default for all routes
-  toggleLoadMoreButton()
+  // hide load-more button by default for all routes
+  toggleLoadMoreButton(false)
 
   const handler = routeHandlers[route] || routeHandlers.default
   handler({ params })
 }
 
 export function handleSearch (e) {
-  const normalizeInput = input => input.toLowerCase()
-  state.searchTerm = normalizeInput(e.target.value)
+  const searchValue = e.target.value.toLowerCase()
+  setSearchTerm(searchValue)
 
-  // Update URL to reflect search (optional - for better UX)
-  if (state.searchTerm) {
+  // update URL to reflect search (optional - for better UX)
+  if (searchValue) {
     history.replaceState(null, '', `#search?q=${encodeURIComponent(e.target.value)}`)
   } else {
     history.replaceState(null, '', '#')
@@ -103,8 +121,10 @@ export function handleSearch (e) {
 }
 
 export function handleLoadMore () {
-  state.displayedPosts += config.maxPosts
-  renderPosts(state.posts, state.displayedPosts)
+  incrementDisplayedPosts()
+  const posts = getPosts()
+  const displayedCount = getDisplayedPosts()
+  renderPosts(posts, displayedCount)
 }
 
 export function toggleMenu () {

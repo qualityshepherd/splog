@@ -79,7 +79,7 @@ const runWithContext = async (testFn, t) => {
   }
 }
 
-export function tappr(testFn) {
+export function tappr (testFn) {
   return async t => {
     await runWithContext(testFn, t)
   }

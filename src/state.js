@@ -1,11 +1,36 @@
 import config from './config.js'
 
-export const state = {
+const initialState = {
   posts: [],
-  displayedPosts: config.maxPosts, // Changed from postLimit to displayedPosts
+  displayedPosts: config.maxPosts,
   searchTerm: ''
 }
 
+// state container
+let currentState = { ...initialState }
+
+export const getState = () => ({ ...currentState })
+export const getPosts = () => [...currentState.posts]
+export const getDisplayedPosts = () => currentState.displayedPosts
+export const getSearchTerm = () => currentState.searchTerm
+
+export const updateState = (updates) => {
+  currentState = { ...currentState, ...updates }
+  return getState()
+}
+
+export const setPosts = (posts) => updateState({ posts: [...posts] })
+export const setDisplayedPosts = (count) => updateState({ displayedPosts: count })
+export const setSearchTerm = (term) => updateState({ searchTerm: term })
+export const incrementDisplayedPosts = (increment = config.maxPosts) =>
+  updateState({ displayedPosts: currentState.displayedPosts + increment })
+
+export const resetState = () => {
+  currentState = { ...initialState }
+  return getState()
+}
+
+// utility functions
 export async function readSiteIndex (pathToIndex) {
   try {
     const res = await fetch(pathToIndex)
@@ -44,7 +69,6 @@ export function sortBy (prop) {
         : 0
 }
 
-// fix Safari date parsing (replaces dashes with slashes).
 function parseDate (str) {
   return new Date(str.replace(/-/g, '/'))
 }

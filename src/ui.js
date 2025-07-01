@@ -1,4 +1,4 @@
-import { state } from './state.js'
+import { getPosts, getDisplayedPosts, getSearchTerm } from './state.js'
 import { elements } from './dom.js'
 import {
   postsTemplate,
@@ -32,14 +32,17 @@ export const postMatchesSearch = (post, searchTerm) => {
   )
 }
 
-export function renderPosts (posts) {
-  const limited = getLimitedPosts(posts, state.displayedPosts)
+// Updated to accept posts and limit as parameters instead of using global state
+export function renderPosts (posts, limit = null) {
+  const displayLimit = limit ?? getDisplayedPosts()
+  const limited = getLimitedPosts(posts, displayLimit)
   elements.main.innerHTML = limited.map(postsTemplate).join('')
-  toggleLoadMoreButton(state.displayedPosts < posts.length)
+  toggleLoadMoreButton(displayLimit < posts.length)
 }
 
 export function renderSinglePost (slug) {
-  const post = state.posts.find(p => p.meta.slug === slug)
+  const posts = getPosts()
+  const post = posts.find(p => p.meta.slug === slug)
   elements.main.innerHTML = post ? singlePostTemplate(post) : notFoundTemplate()
 }
 
@@ -56,14 +59,19 @@ export function renderNotFoundPage () {
 }
 
 export function renderFilteredPosts () {
-  const filtered = state.posts.filter(post =>
-    postMatchesSearch(post, state.searchTerm)
+  const posts = getPosts()
+  const searchTerm = getSearchTerm()
+  const displayedCount = getDisplayedPosts()
+
+  const filtered = posts.filter(post =>
+    postMatchesSearch(post, searchTerm)
   )
-  renderPosts(filtered)
-  toggleLoadMoreButton(filtered.length > state.displayedPosts)
+
+  renderPosts(filtered, filtered.length)
+  toggleLoadMoreButton(filtered.length > displayedCount)
 }
 
-export function toggleLoadMoreButton (shouldShow) {
+export function toggleLoadMoreButton (shouldShow = false) {
   if (!elements.loadMore) return
   elements.loadMore.classList.toggle('show', shouldShow)
 }
