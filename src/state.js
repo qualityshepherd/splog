@@ -10,12 +10,12 @@ const initialState = {
 let currentState = { ...initialState }
 
 export const getState = () => ({ ...currentState })
-export const getPosts = () => [...currentState.posts]
+export const getPosts = () => [...currentState.posts] // returns shallow copy
 export const getDisplayedPosts = () => currentState.displayedPosts
 export const getSearchTerm = () => currentState.searchTerm
 
 export const updateState = (updates) => {
-  currentState = { ...currentState, ...updates }
+  currentState = { ...currentState, ...updates } // shallow merge
   return getState()
 }
 
