@@ -32,7 +32,6 @@ export const postMatchesSearch = (post, searchTerm) => {
   )
 }
 
-// Updated to accept posts and limit as parameters instead of using global state
 export function renderPosts (posts, limit = null) {
   const displayLimit = limit ?? getDisplayedPosts()
   const limited = getLimitedPosts(posts, displayLimit)
