@@ -2,7 +2,7 @@
 
 # SPLOG v2
 
-A simple, single-page blog written in vanilla JS that supports Markdown, RSS, podcasts, and deploys to GitHub Pages.
+A simple, single-page blog written in functional, vanilla JS that supports Markdown, RSS, podcasts, and deploys to GitHub Pages.
 
 [DEMO](https://splog.brine.dev)
 
@@ -11,7 +11,7 @@ A simple, single-page blog written in vanilla JS that supports Markdown, RSS, po
 - Hash-based routing
 - Write posts in Markdown
 - Index generation + Markdown to HTML via [marked](https://github.com/markedjs/marked)
-- Vanilla JavaScript (no frameworks)
+- Functional, vanilla JavaScript (no frameworks)
 - RSS feeds for blog, podcast, and sitemap
 - Easy deployment to GitHub Pages
 
@@ -22,10 +22,10 @@ A simple, single-page blog written in vanilla JS that supports Markdown, RSS, po
 1. `npm run server`   # (optional) local dev server
 
 ## Testing
-Tests use [Tape](https://www.npmjs.com/package/tape) as a test runner. E2E tests uses my own _clever?_ bastardization of Tape and [Puppeteer](https://www.npmjs.com/package/puppeteer) ([tests/pptr.js](https://github.com/qualityshepherd/splog/blob/main/tests/pptr.js)). It works quite well, actually...
+Tests use [Tape](https://www.npmjs.com/package/tape) as a test runner. E2E tests uses my own _clever-ish?_ bastardization of [Tape](https://www.npmjs.com/package/tape) and [Puppeteer](https://www.npmjs.com/package/puppeteer) ([tappr.js](https://github.com/qualityshepherd/splog/blob/main/tests/tappr.js)). It works quite well, actually...
 
 - `npm test` to run all tests
-- tests are part of deploy to github pages workgroup
+- passing tests are also a requirement to deploy to github pages
 
 ## Setup
 - edit `config.js` to customize your blog settings
@@ -35,8 +35,7 @@ Tests use [Tape](https://www.npmjs.com/package/tape) as a test runner. E2E tests
 - (optional) `npm run server` to preview your blog locally
 
 ## Adding Pages
-1. add template to `templates.js`
 1. add a new route to `ROUTES` in `handlers.js`
-1. add a function to render your page content
-1. modify `handleRouting()` to handle your new route:
+1. modify `routeHandlers()` to handle your new route:
+1. add templates to `templates.js`
 1. link to the page in `index.html`
