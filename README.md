@@ -22,9 +22,10 @@ A simple, single-page blog written in functional, vanilla JS that supports Markd
 1. `npm run server`   # (optional) local dev server
 
 ## Testing
-Tests use [Tape](https://www.npmjs.com/package/tape) as a test runner. E2E tests uses my own _clever-ish?_ bastardization of [Tape](https://www.npmjs.com/package/tape) and [Puppeteer](https://www.npmjs.com/package/puppeteer) ([tappr.js](https://github.com/qualityshepherd/splog/blob/main/tests/tappr.js)). It works quite well, actually...
+Tests use [AVA](https://github.com/avajs/ava) as a test runner. E2E tests use my own _clever-ish?_ bastardization of AVA and [Puppeteer](https://www.npmjs.com/package/puppeteer) that I call ([AvaPup](https://github.com/qualityshepherd/splog/blob/main/tests/avapup.js)). It works remarkably well, actually...
 
 - `npm test` to run all tests
+- `npm debug` to run e2e tests _headed_ and slow them down via SLOMO
 - passing tests are also a requirement to deploy to github pages
 
 ## Setup

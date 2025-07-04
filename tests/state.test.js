@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'ava'
 import {
   readSiteIndex,
   sortByDate,
@@ -14,21 +14,20 @@ import {
   resetState
 } from '../src/state.js'
 
-// readSiteIndex uses fetch, which requires a browser and full url
 const pathToIndex = `${process.env.TEST_ENV}/tests/fake.index.json`
 
 test('readSiteIndex should return parsed JSON', async t => {
   const data = await readSiteIndex(pathToIndex)
 
-  t.ok(data.length > 0)
-  t.ok(data[0].meta.title)
+  t.true(data.length > 0)
+  t.truthy(data[0].meta.title)
 })
 
 test('readSiteIndex should exclude future-dated posts', async t => {
   const data = await readSiteIndex(pathToIndex)
   const datesTodayOrOlder = date => new Date(date) <= new Date()
 
-  t.ok(data.every(post => datesTodayOrOlder(post.meta?.date)))
+  t.true(data.every(post => datesTodayOrOlder(post.meta?.date)))
 })
 
 const posts = [
@@ -38,151 +37,121 @@ const posts = [
 ]
 const extractDates = posts => posts.map(p => p.meta.date)
 
-test('sortByDate should sort posts descending by default', async t => {
+test('sortByDate should sort posts descending by default', t => {
   const sortedDates = extractDates(sortByDate(posts))
-
   t.deepEqual(sortedDates, ['2024-01-01', '2023-01-01', '2022-01-01'])
 })
 
-test('sortByDate should sort posts ascending if desc is false', async t => {
+test('sortByDate should sort posts ascending if desc is false', t => {
   const sortedDates = extractDates(sortByDate(posts, false))
-
   t.deepEqual(sortedDates, ['2022-01-01', '2023-01-01', '2024-01-01'])
 })
 
-test('sortByDate should not mutate input', async t => {
+test('sortByDate should not mutate input', t => {
   const clone = JSON.stringify(posts)
   sortByDate(posts)
-
-  t.equal(JSON.stringify(posts), clone)
+  t.is(JSON.stringify(posts), clone)
 })
 
-test('getState should return a copy of state', async t => {
-  resetState() // fresh start...
+test('getState should return a copy of state', t => {
+  resetState()
   const state1 = getState()
   const state2 = getState()
-
   t.deepEqual(state1, state2)
 })
 
-test('setPosts should update posts and return new posts array', async t => {
+test('setPosts should update posts and return new posts array', t => {
   resetState()
   const testPosts = [{ meta: { title: 'Test' } }]
   setPosts(testPosts)
   const retrievedPosts = getPosts()
-
   t.deepEqual(retrievedPosts, testPosts)
 })
 
-test('setDisplayedPosts should update displayed post count', async t => {
+test('setDisplayedPosts should update displayed post count', t => {
   resetState()
-
   setDisplayedPosts(10)
-  t.equal(getDisplayedPosts(), 10)
-
+  t.is(getDisplayedPosts(), 10)
   setDisplayedPosts(25)
-  t.equal(getDisplayedPosts(), 25)
+  t.is(getDisplayedPosts(), 25)
 })
 
-test('setSearchTerm should update search term', async t => {
+test('setSearchTerm should update search term', t => {
   resetState()
-
   setSearchTerm('javascript')
-  t.equal(getSearchTerm(), 'javascript')
-
+  t.is(getSearchTerm(), 'javascript')
   setSearchTerm('')
-  t.equal(getSearchTerm(), '')
+  t.is(getSearchTerm(), '')
 })
 
-test('incrementDisplayedPosts should increase displayed posts count', async t => {
+test('incrementDisplayedPosts should increase displayed posts count', t => {
   resetState()
   setDisplayedPosts(5)
-
   incrementDisplayedPosts(3)
-  t.equal(getDisplayedPosts(), 8)
-
-  incrementDisplayedPosts() // should use default increment
-  t.ok(getDisplayedPosts() > 8, 'should increment by default amount')
+  t.is(getDisplayedPosts(), 8)
+  incrementDisplayedPosts() // default increment
+  t.true(getDisplayedPosts() > 8)
 })
 
-test('updateState should update multiple properties at once', async t => {
+test('updateState should update multiple properties at once', t => {
   resetState()
   const testPosts = [{ meta: { title: 'Test' } }]
-
   updateState({
     posts: testPosts,
     displayedPosts: 15,
     searchTerm: 'test query'
   })
-
   const state = getState()
   t.deepEqual(state.posts, testPosts)
-  t.equal(state.displayedPosts, 15)
-  t.equal(state.searchTerm, 'test query')
+  t.is(state.displayedPosts, 15)
+  t.is(state.searchTerm, 'test query')
 })
 
-test('state updates should be immutable', async t => {
+test('state updates should be immutable', t => {
   resetState()
   const initialState = getState()
-
   setPosts([{ meta: { title: 'New Post' } }])
   setDisplayedPosts(20)
   setSearchTerm('search')
-
-  // original state reference should not have changed
   t.notDeepEqual(getState(), initialState)
-  t.equal(initialState.posts.length, 0, 'initial state should be empty')
+  t.is(initialState.posts.length, 0)
 })
 
-test('resetState should restore initial state', async t => {
+test('resetState should restore initial state', t => {
   setPosts([{ meta: { title: 'Test' } }])
   setDisplayedPosts(99)
   setSearchTerm('modified')
-
   const resetResult = resetState()
   const currentState = getState()
-
-  t.equal(currentState.posts.length, 0)
-  t.equal(currentState.searchTerm, '')
-  t.ok(currentState.displayedPosts > 0, 'should have default displayedPosts')
-  t.deepEqual(resetResult, currentState, 'resetState should return new state')
+  t.is(currentState.posts.length, 0)
+  t.is(currentState.searchTerm, '')
+  t.true(currentState.displayedPosts > 0)
+  t.deepEqual(resetResult, currentState)
 })
 
-test('state getters should return copies to prevent mutation', async t => {
+test('state getters should return copies to prevent mutation', t => {
   resetState()
   const testPosts = [
     { meta: { title: 'Post 1' } },
     { meta: { title: 'Post 2' } }
   ]
-
   setPosts(testPosts)
-
   const posts1 = getPosts()
   const posts2 = getPosts()
-
-  // Modify the returned array
   posts1.push({ meta: { title: 'Hacked Post' } })
-
-  // Original posts should be unchanged
-  t.equal(getPosts().length, 2, 'original posts should be unchanged')
-  t.equal(posts2.length, 2, 'other references should be unchanged')
+  t.is(getPosts().length, 2)
+  t.is(posts2.length, 2)
 })
 
-test('state should handle edge cases gracefully', async t => {
+test('state should handle edge cases gracefully', t => {
   resetState()
-
-  // test with null/empty values
   setPosts([])
-  t.equal(getPosts().length, 0)
-
+  t.is(getPosts().length, 0)
   setDisplayedPosts(0)
-  t.equal(getDisplayedPosts(), 0)
-
+  t.is(getDisplayedPosts(), 0)
   setSearchTerm('')
-  t.equal(getSearchTerm(), '')
-
-  // test with negative increment
+  t.is(getSearchTerm(), '')
   setDisplayedPosts(10)
   incrementDisplayedPosts(-5)
-  t.equal(getDisplayedPosts(), 5)
+  t.is(getDisplayedPosts(), 5)
 })

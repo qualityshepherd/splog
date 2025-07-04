@@ -8,13 +8,11 @@ const getEnvOptions = () => ({
 const createBrowser = async () => {
   const { headless, slowMo } = getEnvOptions()
 
-  const browser = await puppeteer.launch({
+  return puppeteer.launch({
     headless,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
     slowMo
   })
-
-  return browser
 }
 
 const createTestContext = async (t, browser) => {
@@ -28,6 +26,7 @@ const createTestContext = async (t, browser) => {
 
   page.setDefaultTimeout(10000)
 
+  // Attach helpers directly to `t` (not t.context)
   Object.assign(t, {
     page,
     browser,
@@ -63,24 +62,21 @@ const createTestContext = async (t, browser) => {
   return page
 }
 
-const runWithContext = async (testFn, t) => {
-  const browser = await createBrowser()
-  const page = await createTestContext(t, browser)
-
-  try {
-    await testFn(t)
-  } catch (err) {
-    await page.screenshot({ path: `tests/error-${Date.now()}.png`, fullPage: true })
-    const html = await page.content()
-    console.error('Error HTML snapshot:\n', html.slice(0, 1000))
-    t.fail(err)
-  } finally {
-    await browser.close()
-  }
-}
-
-export function tappr (testFn) {
+export function avapup(testFn) {
   return async t => {
-    await runWithContext(testFn, t)
+    const browser = await createBrowser()
+    const page = await createTestContext(t, browser)
+
+    try {
+      await testFn(t)
+    } catch (err) {
+      await page.screenshot({ path: `tests/error-${Date.now()}.png`, fullPage: true })
+      const html = await page.content()
+      console.error('Error HTML snapshot:\n', html.slice(0, 1000))
+      t.fail(err.message || String(err))
+      throw err
+    } finally {
+      await browser.close()
+    }
   }
 }

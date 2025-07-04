@@ -1,53 +1,61 @@
-import test from 'tape'
-import { tappr } from './tappr.js'
+import test from 'ava'
+import { avapup } from './avapup.js'
 
-const home = `${process.env.TEST_ENV}` || 'https://splog.brine.dev'
+const home = process.env.TEST_ENV || 'https://splog.brine.dev'
 
-test('should display at least one post', tappr(async t => {
+test('should display at least one post', avapup(async t => {
   await t.goto(home)
+  const count = await t.count('.post-title')
 
-  t.ok(await t.count('.post-title') > 0)
+  t.true(count > 0)
 }))
 
-test('should load more posts', tappr(async t => {
+test('should load more posts', avapup(async t => {
   await t.goto(home)
   const initialPostCount = await t.count('.post-title')
   await t.click('#load-more')
+  const stillVisible = await t.hasClass('#load-more', 'show')
+  const updatedPostCount = await t.count('.post-title')
 
-  t.notOk(await t.hasClass('#load-more', 'show'))
-  t.ok(await t.count('.post-title') > initialPostCount)
+  t.false(stillVisible)
+  t.true(updatedPostCount > initialPostCount)
 }))
 
-test('should use menu to navigate to about page', tappr(async t => {
+test('should use menu to navigate to about page', avapup(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.click('a[href="#about"]')
+  const url = await t.url()
 
-  t.ok(await t.url().includes('#about'))
-  t.ok(await t.exists('h2'))
+  t.true(url.includes('#about'))
+  t.true(await t.exists('h2'))
 }))
 
-test('should search for post', tappr(async t => {
+test('should search for post', avapup(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.type('#search', 'human')
+  const count = await t.count('.post-title')
 
-  t.ok(await t.count('.post-title') > 0)
+  t.true(count > 0)
 }))
 
-test('should display archive posts', tappr(async t => {
+test('should display archive posts', avapup(async t => {
   await t.goto(home)
   await t.click('#menu')
   await t.click('a[href="#archive"]')
   await t.waitFor('.archive')
+  const count = await t.count('.archive')
 
-  t.ok(await t.count('.archive') > 0)
+  t.true(count > 0)
 }))
 
-test('should filter posts by tag', tappr(async t => {
+test('should filter posts by tag', avapup(async t => {
   await t.goto(home)
   await t.click('.tag')
+  const url = await t.url()
+  const exists = await t.exists('.tags')
 
-  t.ok(await t.url().includes('#tag'))
-  t.ok(await t.exists('.tags'))
+  t.true(url.includes('#tag'))
+  t.true(exists)
 }))
