@@ -7,7 +7,9 @@
   "license": "MIT",
   "main": "app.js",
   "ava": {
-    "files": ["tests/**/*test.js"],
+    "files": [
+      "tests/**/*test.js"
+    ],
     "timeout": "30s",
     "verbose": true
   },
