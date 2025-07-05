@@ -3,6 +3,8 @@ import { avapup } from './avapup.js'
 
 const home = process.env.TEST_ENV || 'https://splog.brine.dev'
 
+test.before.each
+
 test('should display at least one post', avapup(async t => {
   await t.goto(home)
 
@@ -52,3 +54,7 @@ test('should filter posts by tag', avapup(async t => {
   t.true(await t.url().includes('#tag'))
   t.true(await t.exists('.tags'))
 }))
+
+test.todo('should open a single post')
+
+test.todo('should be responsive; handle different viewports')
