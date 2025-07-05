@@ -39,17 +39,20 @@ const extractDates = posts => posts.map(p => p.meta.date)
 
 test('sortByDate should sort posts descending by default', t => {
   const sortedDates = extractDates(sortByDate(posts))
+
   t.deepEqual(sortedDates, ['2024-01-01', '2023-01-01', '2022-01-01'])
 })
 
 test('sortByDate should sort posts ascending if desc is false', t => {
   const sortedDates = extractDates(sortByDate(posts, false))
+
   t.deepEqual(sortedDates, ['2022-01-01', '2023-01-01', '2024-01-01'])
 })
 
 test('sortByDate should not mutate input', t => {
   const clone = JSON.stringify(posts)
   sortByDate(posts)
+
   t.is(JSON.stringify(posts), clone)
 })
 
@@ -57,6 +60,7 @@ test('getState should return a copy of state', t => {
   resetState()
   const state1 = getState()
   const state2 = getState()
+
   t.deepEqual(state1, state2)
 })
 
@@ -65,22 +69,29 @@ test('setPosts should update posts and return new posts array', t => {
   const testPosts = [{ meta: { title: 'Test' } }]
   setPosts(testPosts)
   const retrievedPosts = getPosts()
+
   t.deepEqual(retrievedPosts, testPosts)
 })
 
 test('setDisplayedPosts should update displayed post count', t => {
   resetState()
   setDisplayedPosts(10)
+
   t.is(getDisplayedPosts(), 10)
+
   setDisplayedPosts(25)
+
   t.is(getDisplayedPosts(), 25)
 })
 
 test('setSearchTerm should update search term', t => {
   resetState()
   setSearchTerm('javascript')
+
   t.is(getSearchTerm(), 'javascript')
+
   setSearchTerm('')
+
   t.is(getSearchTerm(), '')
 })
 
@@ -88,8 +99,11 @@ test('incrementDisplayedPosts should increase displayed posts count', t => {
   resetState()
   setDisplayedPosts(5)
   incrementDisplayedPosts(3)
+
   t.is(getDisplayedPosts(), 8)
+
   incrementDisplayedPosts() // default increment
+
   t.true(getDisplayedPosts() > 8)
 })
 
@@ -102,6 +116,7 @@ test('updateState should update multiple properties at once', t => {
     searchTerm: 'test query'
   })
   const state = getState()
+
   t.deepEqual(state.posts, testPosts)
   t.is(state.displayedPosts, 15)
   t.is(state.searchTerm, 'test query')
@@ -113,6 +128,7 @@ test('state updates should be immutable', t => {
   setPosts([{ meta: { title: 'New Post' } }])
   setDisplayedPosts(20)
   setSearchTerm('search')
+
   t.notDeepEqual(getState(), initialState)
   t.is(initialState.posts.length, 0)
 })
@@ -123,6 +139,7 @@ test('resetState should restore initial state', t => {
   setSearchTerm('modified')
   const resetResult = resetState()
   const currentState = getState()
+
   t.is(currentState.posts.length, 0)
   t.is(currentState.searchTerm, '')
   t.true(currentState.displayedPosts > 0)
@@ -139,6 +156,7 @@ test('state getters should return copies to prevent mutation', t => {
   const posts1 = getPosts()
   const posts2 = getPosts()
   posts1.push({ meta: { title: 'Hacked Post' } })
+
   t.is(getPosts().length, 2)
   t.is(posts2.length, 2)
 })
@@ -146,12 +164,19 @@ test('state getters should return copies to prevent mutation', t => {
 test('state should handle edge cases gracefully', t => {
   resetState()
   setPosts([])
+
   t.is(getPosts().length, 0)
+
   setDisplayedPosts(0)
+
   t.is(getDisplayedPosts(), 0)
+
   setSearchTerm('')
+
   t.is(getSearchTerm(), '')
+
   setDisplayedPosts(10)
   incrementDisplayedPosts(-5)
+
   t.is(getDisplayedPosts(), 5)
 })
