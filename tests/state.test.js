@@ -164,19 +164,15 @@ test('state getters should return copies to prevent mutation', t => {
 test('state should handle edge cases gracefully', t => {
   resetState()
   setPosts([])
-
   t.is(getPosts().length, 0)
 
   setDisplayedPosts(0)
-
   t.is(getDisplayedPosts(), 0)
 
   setSearchTerm('')
-
   t.is(getSearchTerm(), '')
 
   setDisplayedPosts(10)
   incrementDisplayedPosts(-5)
-
   t.is(getDisplayedPosts(), 5)
 })

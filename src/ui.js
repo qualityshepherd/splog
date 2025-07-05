@@ -10,16 +10,6 @@ import {
 
 export const getLimitedPosts = (posts, limit) => posts.slice(0, limit)
 
-export const renderTags = (tags, hash = '#tag') =>
-  Array.isArray(tags)
-    ? tags
-      .map(tag => {
-        const safeTag = encodeURIComponent(tag.toLowerCase())
-        return `<a href="${hash}?t=${safeTag}" class="tag" role="button" aria-label="Filter by tag: ${tag}">${tag}</a>`
-      })
-      .join(' ')
-    : ''
-
 export const postMatchesSearch = (post, searchTerm) => {
   if (!searchTerm) return true
 
@@ -31,6 +21,20 @@ export const postMatchesSearch = (post, searchTerm) => {
     (post.meta.tags || []).some(tag => tag.toLowerCase().includes(term))
   )
 }
+
+export const renderTags = (tags, hash = '#tag') =>
+  Array.isArray(tags)
+    ? tags
+      .map(tag => {
+        const safeTag = encodeURIComponent(tag.toLowerCase())
+        return `<a href="${hash}?t=${safeTag}" class="tag" role="button" aria-label="Filter by tag: ${tag}">${tag}</a>`
+      })
+      .join(' ')
+    : ''
+
+//
+// test render functions via e2e tests...
+//
 
 export function renderPosts (posts, limit = null) {
   const displayLimit = limit ?? getDisplayedPosts()
