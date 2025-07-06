@@ -24,9 +24,7 @@
     "rss:pod": "node ./lib/genr8Pod.js",
     "rss:sitemap": "node ./lib/genr8Sitemap.js",
     "start": "npm run build:index && npm run rss:blog && npm run rss:pod && npm run rss:sitemap",
-    "pretest": "npm run server & sleep 1",
-    "test": "TEST_ENV=http://localhost:4242 ava",
-    "posttest": "npm run kill",
+    "test": "start-server-and-test server http://localhost:4242 ava",
     "debug": "HEADLESS=false SLOMO=100 npm test",
     "server": "npm start && http-server -s -p 4242",
     "kill": "lsof -ti :4242 | xargs kill -9 > /dev/null",
@@ -36,7 +34,8 @@
     "ava": "^6.4.0",
     "http-server": "^14.1.1",
     "puppeteer": "^24.11.2",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "start-server-and-test": "^2.0.12"
   },
   "dependencies": {
     "marked": "^15.0.12"

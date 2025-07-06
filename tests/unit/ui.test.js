@@ -1,5 +1,5 @@
 import test from 'ava'
-import { getLimitedPosts, postMatchesSearch, renderTags } from '../src/ui.js'
+import { getLimitedPosts, postMatchesSearch, renderTags } from '../../src/ui.js'
 
 // we use a factory function to ensure a fresh state
 function fakeIndex () {

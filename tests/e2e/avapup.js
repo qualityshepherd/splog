@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer'
+import helperFactory, { locators } from './helpers.js'
 
 const getEnvOptions = () => ({
   headless: String(process.env.HEADLESS ?? 'true').toLowerCase() === 'true',
@@ -26,13 +27,15 @@ const createTestContext = async (t, browser) => {
 
   page.setDefaultTimeout(10000)
 
+  const helpers = helperFactory(t)
+
   // attach helpers directly to `t`
   Object.assign(t, {
     page,
     browser,
+    ...helpers,
 
     // navigation
-    goto: url => page.goto(url),
     url: () => page.url(),
     wait: ms => new Promise(resolve => setTimeout(resolve, ms)),
     waitFor: sel => page.waitForSelector(sel),
@@ -51,7 +54,10 @@ const createTestContext = async (t, browser) => {
     click: sel => page.click(sel),
     clickNth: (sel, idx) => page.$$eval(sel, (els, i) => { els[i]?.click() }, idx),
     type: (sel, text) => page.type(sel, text),
-    press: key => page.keyboard.press(key),
+    press: async key => {
+      await page.keyboard.press(key)
+      await page.waitForNavigation() // can blow up nav otherwise
+    },
     eval: fn => page.evaluate(fn),
 
     // networking
@@ -70,7 +76,7 @@ export function avapup (testFn) {
     try {
       await testFn(t)
     } catch (err) {
-      await page.screenshot({ path: `tests/error-${Date.now()}.png`, fullPage: true })
+      await page.screenshot({ path: `tests/screenshots/error-${Date.now()}.png`, fullPage: true })
       const html = await page.content()
       console.error('Error HTML snapshot:\n', html.slice(0, 1000))
       t.fail(err.message || String(err))
@@ -80,3 +86,6 @@ export function avapup (testFn) {
     }
   }
 }
+
+// export locators as $ for direct import in test files
+export { locators as $ }

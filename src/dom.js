@@ -1,6 +1,5 @@
 // We use getters so DOM access is lazy — the actual query happens only when you
-// access the property. This helps in tests where document might not be defined
-// (e.g., in Node), because just importing this object doesn’t trigger DOM access.
+// access the property. This helps in tests where document might not be defined (eg. Node)
 export const elements = {
   get main () { return document.querySelector('main') },
   get menu () { return document.querySelector('#menu') },

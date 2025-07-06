@@ -20,7 +20,9 @@ export const singlePostTemplate = post => `
   </article>
 `
 
-export const notFoundTemplate = () => '<p>Post not found.</p>'
+export const notFoundTemplate = (message = 'No results found.') => `
+  <h2 class="not-found">${message}</h2>
+`
 
 export const aboutPageTemplate = () => `
   <h2>SPLOG2</h2>

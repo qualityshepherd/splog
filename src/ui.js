@@ -64,14 +64,17 @@ export function renderNotFoundPage () {
 export function renderFilteredPosts () {
   const posts = getPosts()
   const searchTerm = getSearchTerm()
-  const displayedCount = getDisplayedPosts()
-
   const filtered = posts.filter(post =>
     postMatchesSearch(post, searchTerm)
   )
 
-  renderPosts(filtered, filtered.length)
-  toggleLoadMoreButton(filtered.length > displayedCount)
+  // check if there are no filtered posts
+  if (filtered.length === 0) {
+    elements.main.innerHTML = notFoundTemplate('No results found for your search.')
+    toggleLoadMoreButton(false) // Hide load more button if no results
+  } else {
+    renderPosts(filtered, filtered.length)
+  }
 }
 
 export function toggleLoadMoreButton (shouldShow = false) {

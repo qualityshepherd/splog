@@ -13,9 +13,10 @@ import {
   updateState,
   removeFuturePosts,
   resetState
-} from '../src/state.js'
+} from '../../src/state.js'
 
-const pathToIndex = `${process.env.TEST_ENV}/tests/fake.index.json`
+const baseUrl = process.env.TEST_ENV || 'http://localhost:4242'
+const pathToIndex = `${baseUrl}/tests/unit/fake.index.json`
 
 test('readSiteIndex should return parsed JSON', async t => {
   const data = await readSiteIndex(pathToIndex)
