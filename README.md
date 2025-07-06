@@ -41,7 +41,7 @@ Tests use [AVA](https://github.com/avajs/ava) as a test runner for both unit and
 - `npm debug` to run e2e tests _headed_ and slow them down via SLOMO
 - passing tests are also a requirement to deploy to github pages
 
-``` bash
+```console
 ✔ unit › ui › getLimitedPosts should return limited number of posts
 ✔ unit › ui › getLimitedPosts should handle edge cases
 ✔ unit › ui › postMatchesSearch should return posts with matching title
