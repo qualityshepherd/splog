@@ -68,7 +68,7 @@ const createTestContext = async (t, browser) => {
   return page
 }
 
-export function avapup (testFn) {
+export function ap (testFn) {
   return async t => {
     const browser = await createBrowser()
     const page = await createTestContext(t, browser)

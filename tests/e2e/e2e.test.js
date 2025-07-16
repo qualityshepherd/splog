@@ -1,5 +1,5 @@
 import test from 'ava'
-import { avapup as ap, $ } from './avapup.js'
+import { ap, $ } from './avapup.js'
 
 test('should display all posts', ap(async t => {
   await t.goto()
