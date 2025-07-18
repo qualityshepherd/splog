@@ -1,5 +1,5 @@
 /**
- * helpers for e2e tests to simplify and improve readability
+ * single page object for e2e tests to simplify and improve readability
  */
 
 const baseUrl = process.env.TEST_ENV || 'http://localhost:4242'

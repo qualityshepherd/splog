@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-import helperFactory, { locators } from './helpers.js'
+import spa, { locators } from './spa.page.js'
 
 const getEnvOptions = () => ({
   headless: String(process.env.HEADLESS ?? 'true').toLowerCase() === 'true',
@@ -27,7 +27,7 @@ const createTestContext = async (t, browser) => {
 
   page.setDefaultTimeout(10000)
 
-  const helpers = helperFactory(t)
+  const helpers = spa(t)
 
   // attach helpers directly to `t`
   Object.assign(t, {
