@@ -49,7 +49,7 @@ test('should access archive posts via url', ap(async t => {
 
 test('should filter posts by tag', ap(async t => {
   await t.goto()
-  await t.click($.tagLink)
+  await t.waitAndClick($.tagLink)
 
   t.true(await t.url().includes('#tag'))
   t.true(await t.exists('.tags'))
